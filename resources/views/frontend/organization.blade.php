@@ -229,7 +229,7 @@
       zoom:10
     });
 
-    if (locations.latitude && locations.longitude) {
+    if (locations.latitude !== null && locations.longitude !== null) {
         mymap.addMarker({
             lat: locations.latitude,
             lng: locations.longitude,
