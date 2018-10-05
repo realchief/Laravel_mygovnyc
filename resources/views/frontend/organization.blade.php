@@ -221,7 +221,7 @@
 
     var locations = <?php print_r(json_encode($agency_map)) ?>;
 
-    if (locations.latitude !== null && locations.longitude !== null) {
+    if (locations !== null) {
         var mymap = new GMaps({
           el: '#mymap',
           lat: locations.latitude,
@@ -238,7 +238,7 @@
         });
     }
 
-    if (locations.latitude !== null && locations.longitude !== null) {
+    if (locations !== null) {
         mymap.addMarker({
             lat: locations.latitude,
             lng: locations.longitude,
