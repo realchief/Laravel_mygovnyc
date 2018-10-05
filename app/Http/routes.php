@@ -159,6 +159,8 @@ Route::get('home',['uses'=>'IndexController@index']);
 
 Route::get('about',['uses'=>'IndexController@about']);
 
+Route::get('data',['uses'=>'IndexController@data']);
+
 Route::get('get_involved',['uses'=>'IndexController@get_involved']);
 
 // USER PAGE ROUTES - RUNNING THROUGH AUTH MIDDLEWARE
