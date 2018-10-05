@@ -221,13 +221,22 @@
 
     var locations = <?php print_r(json_encode($agency_map)) ?>;
 
-
-    var mymap = new GMaps({
-      el: '#mymap',
-      lat: locations.latitude,
-      lng: locations.longitude,
-      zoom:10
-    });
+    if (locations.latitude !== null && locations.longitude !== null) {
+        var mymap = new GMaps({
+          el: '#mymap',
+          lat: locations.latitude,
+          lng: locations.longitude,
+          zoom:10
+        });
+    }
+    else{
+        var mymap = new GMaps({
+          el: '#mymap',
+          lat: 40.712722,
+          lng: -74.006058,
+          zoom:10
+        });
+    }
 
     if (locations.latitude !== null && locations.longitude !== null) {
         mymap.addMarker({
