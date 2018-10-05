@@ -229,14 +229,16 @@
       zoom:10
     });
 
-    mymap.addMarker({
-        lat: locations.latitude,
-        lng: locations.longitude,
-        title: locations.name,
-        infoWindow: {
-        content: ('<span>' +locations.address_1+', ' +locations.city+', '+locations.state_province+', '+locations.postal_code+'</span>')
-        }
-    });
+    if (locations.latitude && locations.longitude) {
+        mymap.addMarker({
+            lat: locations.latitude,
+            lng: locations.longitude,
+            title: locations.name,
+            infoWindow: {
+            content: ('<span>' +locations.address_1+', ' +locations.city+', '+locations.state_province+', '+locations.postal_code+'</span>')
+            }
+        });
+    }
 
 
 </script>
