@@ -100,10 +100,6 @@ Route::match(['get', 'post'], '/organizations_find', [
     'uses'          => 'OrganizationController@search'
 ]);
 
-Route::get('/findorganization_{id}', 'IndexController@findorganization');
-Route::get('/findservice_{id}', 'IndexController@findservice');
-Route::get('/findproject_{id}', 'IndexController@findproject');
-Route::get('/findpeople_{id}', 'IndexController@findpeople');
 
 // ALL AUTHENTICATION ROUTES - HANDLED IN THE CONTROLLERS
 Route::controllers([
@@ -155,11 +151,13 @@ Route::get('reset', function () {
 Route::get('admin', function () {
     return redirect('/dashboard');
 });
-Route::get('home',['uses'=>'IndexController@index']);
+Route::get('/home',['uses'=>'IndexController@index']);
 
-Route::get('about',['uses'=>'IndexController@about']);
+Route::get('/about',['uses'=>'IndexController@about']);
 
-Route::get('data',['uses'=>'IndexController@data']);
+Route::get('/data',['uses'=>'IndexController@data']);
+
+Route::get('/laws',['uses'=>'IndexController@law']);
 
 Route::get('get_involved',['uses'=>'IndexController@get_involved']);
 
@@ -233,6 +231,11 @@ Route::group(['middleware' => 'administrator'], function () {
 		'uses' 			=> 'AboutsController@index'
 	]);
 
+	Route::get('/data_edit', [
+		'as' 			=> '{username}',
+		'uses' 			=> 'DataController@index'
+	]);
+
 	Route::get('/datasync', [
 		'as' 			=> '{username}',
 		'uses' 			=> 'UserController@datasync'
@@ -246,6 +249,10 @@ Route::group(['middleware' => 'administrator'], function () {
 	Route::resource('abouts', 'AboutsController');
 
 	Route::resource('involves', 'InvolvesController');
+
+	Route::resource('datas', 'DataController');
+
+	Route::resource('law', 'LawController');
 
 	//Tables
 	Route::resource('tb_projects', 'AdminProjectController');

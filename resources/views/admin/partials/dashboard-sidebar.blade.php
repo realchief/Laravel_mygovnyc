@@ -39,6 +39,8 @@
               <ul class="treeview-menu">
                 <li><a href="/posts"><i class="fa fa-pencil"></i> Home</a></li>
                 <li><a href="/abouts"><i class="fa fa-info-circle"></i> About</a></li>
+                <li><a href="/datas"><i class="fa fa-archive"></i> Data</a></li>
+                <li><a href="/law"><i class="fa fa-balance-scale"></i> Laws</a></li>
                 <li><a href="/involves"><i class="fa fa-handshake-o"></i> Get Involved</a></li>
               </ul>
             </li>
