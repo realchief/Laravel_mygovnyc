@@ -68,7 +68,7 @@
                 lng: value.project_long,
                 title: value.project_projectid,
                 infoWindow: {
-                    content: ('<a style="color:red;" href="projects_'+value.project_recordid+'">'+value.project_projectid+'</a></br>')
+                    content: ('<a>'+value.project_projectid+'</a></br>')
                 }
             });
         }
