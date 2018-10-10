@@ -210,21 +210,21 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="box text-center" style="min-height: 390px;">
-                                <h3 class="box-title">Charter</h3>
+                                <h4 class="box-title">Charter</h4>
                                 <a class="btn btn-charter" href="http://{{$organization->charter}}" target="_blank">Charter</a>
                                 <iframe src="http://{{$organization->charter}}" class="charter-iframe"></iframe>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="box text-center" style="min-height: 390px;">
-                                <h3 class="box-title">Administrative Code</h3>
+                                <h4 class="box-title">Administrative Code</h4>
                                 <a class="btn btn-charter" target="_blank" href="http://{{$organization->code}}">Administrative Code</a>
                                 <iframe src="http://{{$organization->code}}" class="charter-iframe"></iframe>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="box text-center" style="min-height: 390px;">
-                                <h3 class="box-title">Rules</h3>
+                                <h4 class="box-title">Rules</h4>
                                 <a class="btn btn-charter" target="_blank" href="http://{{$organization->rules}}">Rules</a>
                                 <iframe src="http://{{$organization->rules}}" class="charter-iframe"></iframe>
                             </div>
