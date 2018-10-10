@@ -32,6 +32,7 @@
                 <li role="presentation"><a href="#services" aria-controls="messages" role="tab" data-toggle="tab" id="services_tab">SERVICES</a></li>
                 <li role="presentation"><a href="#money" aria-controls="money" role="tab" data-toggle="tab" id="money_tab">MONEY</a></li>
                 <li role="presentation"><a href="#peoples" aria-controls="people" role="tab" data-toggle="tab" id="peoples_tab">PEOPLE</a></li>
+                <li role="presentation" style="width:188px;"><a href="#laws" aria-controls="people" role="tab" data-toggle="tab" id="laws_tab">LAWS, CODE & RULES</a></li>
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="about">
@@ -203,6 +204,32 @@
                 
                 <div role="tabpanel" class="tab-pane" id="peoples">
                     
+                </div>
+
+                <div role="tabpanel" class="tab-pane active" id="laws">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="box text-center" style="min-height: 390px;">
+                                <h3 class="box-title">Charter</h3>
+                                <a class="btn btn-charter" href="http://{{$organization->charter}}" target="_blank">Charter</a>
+                                <iframe src="http://{{$organization->charter}}" class="charter-iframe"></iframe>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="box text-center" style="min-height: 390px;">
+                                <h3 class="box-title">Administrative Code</h3>
+                                <a class="btn btn-charter" target="_blank" href="http://{{$organization->code}}">Administrative Code</a>
+                                <iframe src="http://{{$organization->code}}" class="charter-iframe"></iframe>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="box text-center" style="min-height: 390px;">
+                                <h3 class="box-title">Rules</h3>
+                                <a class="btn btn-charter" target="_blank" href="http://{{$organization->rules}}">Rules</a>
+                                <iframe src="http://{{$organization->rules}}" class="charter-iframe"></iframe>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
