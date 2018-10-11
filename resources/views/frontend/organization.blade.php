@@ -208,25 +208,28 @@
 
                 <div role="tabpanel" class="tab-pane active" id="laws">
                     <div class="row">
+                        <div class="col-sm-12">
+                            <p>Agencies are governed by three documents: the city charter explains their purpose, the administrative code explains what they’re supposed to do and the rules explain how they’ve supposed to do it (more or less). Below you can see where this agency is mentioned in these important documents.</h4>
+                        </div>
                         <div class="col-sm-4">
                             <div class="box text-center" style="min-height: 390px;">
                                 <h4 class="box-title">Charter</h4>
-                                <a class="btn btn-charter" href="http://{{$organization->charter}}" target="_blank">Charter</a>
                                 <iframe src="http://{{$organization->charter}}" class="charter-iframe"></iframe>
+                                <a class="btn btn-charter" href="http://{{$organization->charter}}" target="_blank">Go to the Charter</a>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="box text-center" style="min-height: 390px;">
-                                <h4 class="box-title">Administrative Code</h4>
-                                <a class="btn btn-charter" target="_blank" href="http://{{$organization->code}}">Administrative Code</a>
+                                <h4 class="box-title">Administrative Code</h4> 
                                 <iframe src="http://{{$organization->code}}" class="charter-iframe"></iframe>
+                                <a class="btn btn-charter" target="_blank" href="http://{{$organization->code}}">Go to the Code</a>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="box text-center" style="min-height: 390px;">
                                 <h4 class="box-title">Rules</h4>
-                                <a class="btn btn-charter" target="_blank" href="http://{{$organization->rules}}">Rules</a>
                                 <iframe src="http://{{$organization->rules}}" class="charter-iframe"></iframe>
+                                <a class="btn btn-charter" target="_blank" href="http://{{$organization->rules}}">Go to the Rules</a>
                             </div>
                         </div>
                     </div>
