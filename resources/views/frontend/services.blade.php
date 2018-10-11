@@ -19,9 +19,9 @@
                     <div class="box box-service">
                         <p class="text-aqua" id="{{$organization_service->service_id}}">{{$organization_service->name}}</p>
 
-                        <p>Category: {{$organization_service->taxonomy_name}}</p>
-                        
-                        <p>Proviced by: {{$organization_service->organization()->first()->organization_name}}</p>
+                        <p>Category: <span class="taxonomyid" id="{{$organization_service->taxonomy}}">{{$organization_service->taxonomy()->first()->name}}</span></p>
+        
+                        <p>Proviced by: <span class="organizationid" id="{{$organization_service->organization}}">{{$organization_service->organization()->first()->organization_name}}</span></p>
                         <p>Phone: {!! $organization_service->phone_numbers !!}</p>
                     </div>
                     @endif

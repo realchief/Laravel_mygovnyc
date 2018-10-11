@@ -10,14 +10,7 @@
           </div>        
         </div>
       </div>
-<!--       <form action="#" method="get" class="sidebar-form">
-        <div class="has-feedback">
-          <span class="glyphicon glyphicon-search form-control-input"></span>
-          <div class="form-group is-empty">
-            <input type="text" class="form-control form-input" placeholder="Search Address">
-          </div>        
-        </div>
-      </form> -->
+
       <hr>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -77,6 +70,7 @@
         search_service();
         document.getElementById("loader").style.display = "block";
       });
+
       function search_service(){
         val = $('#search_service').val();
         console.log(val);
@@ -126,13 +120,67 @@
                 $('#service_content').html(data);
             }
           });
-      }      
+      } 
+    
       $('.servives-checkbox').on('click', function(e) {
           send_datas();
       });
+
       $('.taxonomy-checkbox').on('click', function(e){
           send_datas();
       });
+
+      $(document).on('click', ".taxonomyid", function () {
+
+          var organization_value = [];
+          var taxonomy_value = [];
+          taxonomy_value[0] = $(this).attr('id');
+
+          $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+          })
+
+          $.ajax({
+            type: 'POST',
+            url: '/services_filter',
+            data: {
+              organization_value: organization_value,
+              taxonomy_value: taxonomy_value
+            },
+            success: function(data){
+                $('#service_content').html(data);
+            }
+          });
+      });  
+
+      $(document).on('click', ".organizationid", function () {
+
+          var organization_value = [];
+          organization_value[0] = $(this).attr('id');
+          var taxonomy_value = [];
+          
+          $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+          })
+
+          $.ajax({
+            type: 'POST',
+            url: '/services_filter',
+            data: {
+              organization_value: organization_value,
+              taxonomy_value: taxonomy_value
+            },
+            success: function(data){
+                $('#service_content').html(data);
+            }
+          });
+      });
+
+      
 
     });
 </script>

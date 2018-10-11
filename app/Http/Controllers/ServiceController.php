@@ -54,8 +54,10 @@ class ServiceController extends Controller
     public function filter(Request $request)
     {
         $ids = $request->organization_value;
+
         $taxonomies = $request->taxonomy_value;
-         
+        // var_dump($taxonomies);
+        // exit(); 
         $check = 0;
         if(isset($ids[0])){
             $organization_services = Service::where('organization',$ids[0]);
