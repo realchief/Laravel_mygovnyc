@@ -206,7 +206,7 @@
                     
                 </div>
 
-                <div role="tabpanel" class="tab-pane active" id="laws">
+                <div role="tabpanel" class="tab-pane" id="laws">
                     <div class="row">
                         <div class="col-sm-12">
                             <p>Agencies are governed by three documents: the city charter explains their purpose, the administrative code explains what they’re supposed to do and the rules explain how they’ve supposed to do it (more or less). Below you can see where this agency is mentioned in these important documents.</h4>
