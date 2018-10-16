@@ -38,7 +38,7 @@
                 <div role="tabpanel" class="tab-pane active" id="about">
                     <div class="row">
                         <div class="col-sm-8">
-                            <div class="box" style="padding: 40px;border-top: 2px solid #d2d6de;">
+                            <div class="box" style="padding: 40px;border-top: 2px solid #d2d6de;min-height: 233px;">
                                 <div class="row">
                                     <div class="col-md-8" style="padding-top: 5px;">
                                     <p>{!! $organization->organization_description !!}</p>
@@ -93,7 +93,7 @@
                             </div>
                         </div>
                         <div class="col-sm-4">
-                            <div class="box" style="border-top: 2px solid #d2d6de;">
+                            <div class="box" style="border-top: 2px solid #d2d6de;min-height: 574px;">
                                <div id="mymap"></div>
                             
                                 <div class="box-footer" style="height: 115px;">
@@ -127,21 +127,45 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-4">
-                            <div class="box text-center" style="min-height: 390px;">
-                                <p class="text-feed">Twitter feed</p>
-                                <a class="btn btn-tweet" href="http://{{$organization->Twitter}}" target="_blank">Follow on Twitter</a>
+                            <div class="box">
+                                <div class="box-header"><h3 class="box-title">Twitter <a  href="http://{{$organization->Twitter}}" target="_blank">(profile)</a></h3></div>
+                                <div class="box-body">
+                                @if($organization->Twitter)
+                                    <a class="twitter-timeline" href="https://twitter.com/NYCSchools?ref_src=twsrc%5Etfw">Tweets by NYCSchools</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                @else
+                                    <p class="box-body-operating link-txt">We don’t know the Twitter profile of this organization. <br>If you do please <a href="http://mygov.nyc/contact" target="_blank">let us know</a>.</p>
+                                @endif
+                                   
+                                </div>
                             </div>
                         </div>
                         <div class="col-sm-4">
-                            <div class="box text-center" style="min-height: 390px;">
-                                <p class="text-feed">Facebook feed</p>
-                                <a class="btn btn-facebook" target="_blank" href="http://{{$organization->Facebook}}">Follow on Facebook</a>
+                            <div class="box">
+                                <div class="box-header"><h3 class="box-title">Facebook <a  href="http://{{$organization->Facebook}}" target="_blank">(page)</a></h3></div>
+                                <div class="box-body">
+                                    @if($organization->Facebook)
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FNYCschools%2F&tabs=timeline&width=500&height=700&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="300" height="700" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowfullscreen></iframe>
+                                   
+                                    </div>
+                                    @else
+                                    <p class="box-body-operating link-txt">We don’t know the Facebook page of this organization. <br>If you do please <a href="http://mygov.nyc/contact" target="_blank">let us know</a>.</p>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                         <div class="col-sm-4">
-                            <div class="box text-center" style="min-height: 390px;">
-                                <p class="text-feed">News Feed</p>
-                                <a class="btn btn-rss" target="_blank" href="http://{{$organization->RSS}}">Read Their News</a>
+                            <div class="box">
+                                <div class="box-header"><h3 class="box-title">News <a  href="http://{{$organization->RSS}}" target="_blank">(feed)</a></h3></div>
+                                <div class="box-body">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                    @if($organization->RSS)
+                                        <iframe class="embed-responsive-item" frameborder="0" src="//rss.bloople.net/?url=https%3A%2F%2Fmorningbellnyc.com%2Ffeed%2F&detail=&type=html" scrolling="yes" allowfullscreen></iframe>
+                                    @else
+                                    <p class="box-body-operating link-txt">We don’t know the News feed of this organization. <br>If you do please <a href="http://mygov.nyc/contact" target="_blank">let us know</a>.</p>
+                                    @endif
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -213,23 +237,29 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="box text-center" style="min-height: 390px;">
-                                <h4 class="box-title">Charter</h4>
-                                <iframe src="http://{{$organization->charter}}" class="charter-iframe"></iframe>
-                                <a class="btn btn-charter" href="http://{{$organization->charter}}" target="_blank">Go to the Charter</a>
+                                <div class="box-header"><h3 class="box-title">Charter</h3></div>
+                                <div class="box-body">
+                                    <iframe frameborder=0 src="http://{{$organization->charter}}" class="charter-iframe"></iframe>
+                                    <a class="btn btn-charter" href="http://{{$organization->charter}}" target="_blank">Go to the Charter</a>
+                                </div>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="box text-center" style="min-height: 390px;">
-                                <h4 class="box-title">Administrative Code</h4> 
-                                <iframe src="http://{{$organization->code}}" class="charter-iframe"></iframe>
-                                <a class="btn btn-charter" target="_blank" href="http://{{$organization->code}}">Go to the Code</a>
+                                <div class="box-header"><h3 class="box-title">Administrative Code</h3></div>
+                                <div class="box-body">
+                                    <iframe frameborder=0 src="http://{{$organization->code}}" class="charter-iframe"></iframe>
+                                    <a class="btn btn-charter" target="_blank" href="http://{{$organization->code}}">Go to the Code</a>
+                                </div>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="box text-center" style="min-height: 390px;">
-                                <h4 class="box-title">Rules</h4>
-                                <iframe src="http://{{$organization->rules}}" class="charter-iframe"></iframe>
-                                <a class="btn btn-charter" target="_blank" href="http://{{$organization->rules}}">Go to the Rules</a>
+                                <div class="box-header"><h3 class="box-title">Rules</h3></div>
+                                <div class="box-body">
+                                    <iframe frameborder=0 src="http://{{$organization->rules}}" class="charter-iframe"></iframe>
+                                    <a class="btn btn-charter" target="_blank" href="http://{{$organization->rules}}">Go to the Rules</a>
+                                </div>
                             </div>
                         </div>
                     </div>
