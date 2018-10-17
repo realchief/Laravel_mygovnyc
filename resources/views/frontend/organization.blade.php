@@ -27,7 +27,7 @@
         <div class="menu-bar row">
 
             <ul class="nav nav-tabs" role="tablist">
-                <li class="active"><a href="#about" class="menu-title">ABOUT</a></li>
+                <li class="active"><a href="/organization_{{$organization->organizations_id}}" class="menu-title">ABOUT</a></li>
                 <li><a href="/organization_{{$organization->organizations_id}}/projects" id="projects_tab">PROJECTS</a></li>
                 <li><a href="/organization_{{$organization->organizations_id}}/services" id="services_tab">SERVICES</a></li>
                 <li><a href="/organization_{{$organization->organizations_id}}/money" id="money_tab">MONEY</a></li>
