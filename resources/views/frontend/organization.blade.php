@@ -131,7 +131,7 @@
                                 <div class="box-header"><h3 class="box-title">Twitter <a  href="http://{{$organization->Twitter}}" target="_blank">(profile)</a></h3></div>
                                 <div class="box-body">
                                 @if($organization->Twitter)
-                                    <a class="twitter-timeline" href="https://twitter.com/NYCSchools?ref_src=twsrc%5Etfw">Tweets by NYCSch
+                                    <a class="twitter-timeline" href="http://{{$organization->Twitter}}?ref_src=twsrc%5Etfw">Tweets by NYCSch
                                     ools</a> 
 
                                @else
@@ -148,7 +148,7 @@
                                     @if($organization->Facebook)
                                     <div class="embed-responsive embed-responsive-16by9">
 
-                                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FNYCschools%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=false&hide_cover=false&show_facepile=true&appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                                    <iframe src="https://www.facebook.com/plugins/page.php?href=http://{{$organization->Facebook}}&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=false&hide_cover=false&show_facepile=true&appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
                                     </div>
                                     @else
                                     <p class="box-body-operating link-txt">We don’t know the Facebook page of this organization. <br>If you do please <a href="http://mygov.nyc/contact" target="_blank">let us know</a>.</p>
@@ -162,7 +162,7 @@
                                 <div class="box-body">
                                     <div class="embed-responsive embed-responsive-16by9">
                                     @if($organization->RSS)
-                                        <iframe class="embed-responsive-item" frameborder="0" src="//rss.bloople.net/?url=https%3A%2F%2Fmorningbellnyc.com%2Ffeed%2F&detail=&type=html" scrolling="yes" allowfullscreen></iframe>
+                                        <iframe class="embed-responsive-item" frameborder="0" src="//rss.bloople.net/?url=http://{{$organization->RSS}}feed%2F&detail=&type=html" scrolling="yes" allowfullscreen></iframe>
                                     @else
                                     <p class="box-body-operating link-txt">We don’t know the News feed of this organization. <br>If you do please <a href="http://mygov.nyc/contact" target="_blank">let us know</a>.</p>
                                     @endif
