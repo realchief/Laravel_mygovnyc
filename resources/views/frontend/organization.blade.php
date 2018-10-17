@@ -27,12 +27,12 @@
         <div class="menu-bar row">
 
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#about" aria-controls="about" role="tab" data-toggle="tab" class="menu-title">ABOUT</a></li>
-                <li role="presentation"><a href="#projects" aria-controls="projects" role="tab" data-toggle="tab"  id="projects_tab">PROJECTS</a></li>
-                <li role="presentation"><a href="#services" aria-controls="messages" role="tab" data-toggle="tab" id="services_tab">SERVICES</a></li>
-                <li role="presentation"><a href="#money" aria-controls="money" role="tab" data-toggle="tab" id="money_tab">MONEY</a></li>
-                <li role="presentation"><a href="#peoples" aria-controls="people" role="tab" data-toggle="tab" id="peoples_tab">PEOPLE</a></li>
-                <li role="presentation" style="width:188px;"><a href="#laws" aria-controls="people" role="tab" data-toggle="tab" id="laws_tab">LAWS, CODE & RULES</a></li>
+                <li class="active"><a href="#about" class="menu-title">ABOUT</a></li>
+                <li><a href="/organization_{{$organization->organizations_id}}/projects" id="projects_tab">PROJECTS</a></li>
+                <li><a href="/organization_{{$organization->organizations_id}}/services" id="services_tab">SERVICES</a></li>
+                <li><a href="/organization_{{$organization->organizations_id}}/money" id="money_tab">MONEY</a></li>
+                <li><a href="/organization_{{$organization->organizations_id}}/peoples" id="peoples_tab">PEOPLE</a></li>
+                <li style="width:188px;"><a href="/organization_{{$organization->organizations_id}}/laws" id="laws_tab">LAWS, CODE & RULES</a></li>
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="about">
@@ -131,8 +131,10 @@
                                 <div class="box-header"><h3 class="box-title">Twitter <a  href="http://{{$organization->Twitter}}" target="_blank">(profile)</a></h3></div>
                                 <div class="box-body">
                                 @if($organization->Twitter)
-                                    <a class="twitter-timeline" href="https://twitter.com/NYCSchools?ref_src=twsrc%5Etfw">Tweets by NYCSchools</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                                @else
+                                    <a class="twitter-timeline" href="https://twitter.com/NYCSchools?ref_src=twsrc%5Etfw">Tweets by NYCSch
+                                    ools</a> 
+
+                               @else
                                     <p class="box-body-operating link-txt">We don’t know the Twitter profile of this organization. <br>If you do please <a href="http://mygov.nyc/contact" target="_blank">let us know</a>.</p>
                                 @endif
                                    
@@ -146,7 +148,7 @@
                                     @if($organization->Facebook)
                                     <div class="embed-responsive embed-responsive-16by9">
 
-                                    <iframe class="embed-responsive-item" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FNYCschools%2F&tabs=timeline&width=465&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" style="border:none;overflow:hidden;width:100%;height:100%;position:absolute;left:0;" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FNYCschools%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=false&hide_cover=false&show_facepile=true&appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
                                     </div>
                                     @else
                                     <p class="box-body-operating link-txt">We don’t know the Facebook page of this organization. <br>If you do please <a href="http://mygov.nyc/contact" target="_blank">let us know</a>.</p>
@@ -170,100 +172,6 @@
                         </div>
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="projects">
-
-                </div>
-                <div role="tabpanel" class="tab-pane" id="services">
- 
-                </div>
-                <div role="tabpanel" class="tab-pane" id="money">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="box box-budget">
-                                <h5 class="box-body-operating">Expense Budget: <span class="budget-span"> ${{number_format($expense_budget)}}</span></h5>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="box box-budget">
-                                <h5 class="box-body-operating">Capital Budget: <span class="budget-span"> ${{number_format($capital_budget)}}</span></h5>
-                            </div>
-                        </div> 
-                    </div>
-                    <div class="box">
-                        <table class="table">
-                            <thead>
-                            <tr class="info">
-                                <th class="text-left" style="padding-left: 50px;">Budget</th>
-                                <th class="text-right" style="padding-right: 50px;">Year 1</th>
-                                <th class="text-right" style="padding-right: 50px;">Year 2</th>
-                                <th class="text-right" style="padding-right: 50px;">Year 3</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                
-                                @foreach($organization_expenses as $organizaiton_expense)
-                                <tr>
-                                    <td class="text-left"  style="padding-left: 50px;">{{$organizaiton_expense->line_number_description}}</td>
-                                    <td class="text-right" style="padding-right: 50px;">${{number_format($organizaiton_expense->year1_forecast)}}</td>
-                                    <td class="text-right" style="padding-right: 50px;">${{number_format($organizaiton_expense->year2_estimate)}}</td>
-                                    <td class="text-right" style="padding-right: 50px;">${{number_format($organizaiton_expense->year3_estimate)}}</td>
-                                </tr>
-                                @endforeach
-                                <tfoot class="budget-foot">
-                                    <tr class="budget-tb">
-                                        <td class="text-left" style="padding-left: 50px;"><b>Total Expense Budget</b></td>
-                                        <td class="text-right" style="padding-right: 50px;"><b>${{number_format($expenses_sum->expenses_year1)}}</b></td>
-                                        <td class="text-right" style="padding-right: 50px;"><b>${{number_format($expenses_sum->expenses_year2)}}</b></td>
-                                        <td class="text-right" style="padding-right: 50px;"><b>${{number_format($expenses_sum->expenses_year3)}}<b></td>
-                                    </tr>
-                                    <tr class="budget-tb">
-                                        <td class="text-left" style="padding-left: 50px;"><b>Total Capital Budget</b></td>
-                                        <td class="text-right" colspan="3" style="padding-right: 50px;"><b>${!! $organization->total_project_cost !!}<b></td>
-                                    </tr>
-                                </tfoot>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                
-                <div role="tabpanel" class="tab-pane" id="peoples">
-                    
-                </div>
-
-                <div role="tabpanel" class="tab-pane" id="laws">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <p>Agencies are governed by three documents: the city charter explains their purpose, the administrative code explains what they’re supposed to do and the rules explain how they’ve supposed to do it (more or less). Below you can see where this agency is mentioned in these important documents.</h4>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="box text-center" style="min-height: 390px;">
-                                <div class="box-header"><h3 class="box-title">Charter</h3></div>
-                                <div class="box-body">
-                                    <iframe frameborder=0 src="http://{{$organization->charter}}" class="charter-iframe"></iframe>
-                                    <a class="btn btn-charter" href="http://{{$organization->charter}}" target="_blank">Go to the Charter</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="box text-center" style="min-height: 390px;">
-                                <div class="box-header"><h3 class="box-title">Administrative Code</h3></div>
-                                <div class="box-body">
-                                    <iframe frameborder=0 src="http://{{$organization->code}}" class="charter-iframe"></iframe>
-                                    <a class="btn btn-charter" target="_blank" href="http://{{$organization->code}}">Go to the Code</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="box text-center" style="min-height: 390px;">
-                                <div class="box-header"><h3 class="box-title">Rules</h3></div>
-                                <div class="box-body">
-                                    <iframe frameborder=0 src="http://{{$organization->rules}}" class="charter-iframe"></iframe>
-                                    <a class="btn btn-charter" target="_blank" href="http://{{$organization->rules}}">Go to the Rules</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -271,11 +179,6 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script>
-<script src="{{ asset('js/frontend/organization_projects_ajax.js') }}"></script>
-<script src="{{ asset('js/frontend/organization_services_ajax.js') }}"></script>
-<script src="{{ asset('js/frontend/organization_service_ajax.js') }}"></script>
-<script src="{{ asset('js/frontend/organization_peoples_ajax.js') }}"></script>
-<script src="{{ asset('js/frontend/organization_people_ajax.js') }}"></script>
 
 <script type="text/javascript">
 
@@ -311,5 +214,7 @@
 
 
 </script>
+
+
 
 @endsection

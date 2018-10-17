@@ -38,10 +38,13 @@ Route::get('/twitter', function()
 //Organizations
 Route::get('/organizations', 'OrganizationController@all');
 Route::get('/organization_all', 'OrganizationController@all');
+
+Route::get('/organization_{id}/projects', 'OrganizationController@projects');
+Route::get('/organization_{id}/services', 'OrganizationController@services');
+Route::get('/organization_{id}/peoples', 'OrganizationController@peoples');
+Route::get('/organization_{id}/money', 'OrganizationController@money');
+Route::get('/organization_{id}/laws', 'OrganizationController@laws');
 Route::get('/organization_{id}', 'OrganizationController@find');
-Route::post('/organizationprojects_{id}', 'OrganizationController@projects');
-Route::post('/organizationservices_{id}', 'OrganizationController@services');
-Route::post('/organizationpeoples_{id}', 'OrganizationController@peoples');
 
 Route::post('/organizations_filter', 'OrganizationController@filter');
 Route::post('/organizations_search', 'OrganizationController@search');

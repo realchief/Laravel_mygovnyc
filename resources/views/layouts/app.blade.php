@@ -99,5 +99,6 @@
         setInterval(refreshToken, 3600000); // 1 hour 
 
     </script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 </html>
