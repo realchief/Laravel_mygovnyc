@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,600,700,300italic,400italic,600italic">
     <script src="{{asset('bower_components/jquery/dist/jquery.min.js')}}"></script>
-    <script src="{{asset('css/material-design-lite/material.min.js')}}"></script>
+    
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5XHJ6oNL9-qh0XsL0G74y1xbcxNGkSxw&callback=initMap">
@@ -53,6 +53,7 @@
         <main class="demo-main mdl-layout__content">
             @yield('content')
         </main>
+        <div class="mdl-layout__obfuscator"></div>
 
     </div>
 
@@ -85,20 +86,5 @@
       })
     </script>
     <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5ba15af942fa8c0011745dc1&product=inline-share-buttons' async='async'></script>
-    <script type="text/javascript">
-        var csrfToken = $('[name="csrf_token"]').attr('content');
-
-        setInterval(refreshToken, 3600000); // 1 hour 
-
-        function refreshToken(){
-            $.get('refresh-csrf').done(function(data){
-                csrfToken = data; // the new token
-            });
-        }
-
-        setInterval(refreshToken, 3600000); // 1 hour 
-
-    </script>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+    <!-- <script src="{{asset('css/material-design-lite/material.min.js')}}"></script> -->
 </html>

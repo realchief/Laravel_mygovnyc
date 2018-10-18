@@ -3,7 +3,6 @@
 
 @section('content')
 
-
 <div class="demo-container mdl-grid">
     <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--12-col">
         <div class="page-title row">
@@ -130,10 +129,12 @@
                             <div class="box">
                                 <div class="box-header"><h3 class="box-title">Twitter <a  href="http://{{$organization->Twitter}}" target="_blank">(profile)</a></h3></div>
                                 <div class="box-body">
-                                @if($organization->Twitter)
-                                    <a class="twitter-timeline" href="http://{{$organization->Twitter}}?ref_src=twsrc%5Etfw">Tweets by NYCSch
-                                    ools</a> 
 
+                                @if($organization->Twitter)
+                                <div class="embed-responsive embed-responsive-16by9" style="overflow: overlay;">
+                                    <a class="twitter-timeline" href="https://{{$organization->Twitter}}?ref_src=twsrc%5Etfw">Tweets by NYCSanitation</a> 
+                                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                </div>
                                @else
                                     <p class="box-body-operating link-txt">We don’t know the Twitter profile of this organization. <br>If you do please <a href="http://mygov.nyc/contact" target="_blank">let us know</a>.</p>
                                 @endif
@@ -146,10 +147,87 @@
                                 <div class="box-header"><h3 class="box-title">Facebook <a  href="http://{{$organization->Facebook}}" target="_blank">(page)</a></h3></div>
                                 <div class="box-body">
                                     @if($organization->Facebook)
-                                    <div class="embed-responsive embed-responsive-16by9">
+                                    <aside class="widget--facebook--container">
+                                        <div class="widget-facebook">
+                                          <iframe id="facebook_iframe" class="facebook_iframe"></iframe>
+                                        </div>
+                                    </aside>
+                                    <style type="text/css">
+                                        .widget--facebook--container {
+                                          padding: 10px;
+                                        }
 
-                                    <iframe src="https://www.facebook.com/plugins/page.php?href=http://{{$organization->Facebook}}&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=false&hide_cover=false&show_facepile=true&appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                    </div>
+                                        .widget-facebook {
+                                          height: 500px;
+                                        }
+
+                                        .widget-facebook .facebook_iframe {
+                                          border: none;
+                                        }
+                                    </style>
+                                    <script type="text/javascript">
+                                        function setupFBframe(frame) {
+                                          var container = frame.parentNode;
+
+                                          var facebooklink = <?php print_r(json_encode($organization->Facebook)) ?>;
+
+                                          var containerWidth = container.offsetWidth;
+                                          var containerHeight = container.offsetHeight;
+
+                                          var src =
+                                            "https://www.facebook.com/plugins/page.php" +
+                                            "?href="+facebooklink+
+                                            "&tabs=timeline" +
+                                            "&width=" +
+                                            containerWidth +
+                                            "&height=" +
+                                            containerHeight +
+                                            "&small_header=false" +
+                                            "&adapt_container_width=true" +
+                                            "&hide_cover=false" +
+                                            "&hide_cta=true" +
+                                            "&show_facepile=true" +
+                                            "&appId";
+
+                                          frame.width = containerWidth;
+                                          frame.height = containerHeight;
+                                          frame.src = src;
+                                        }
+
+                                        /* begin Document Ready                                             
+                                        ############################################ */
+
+                                        document.addEventListener('DOMContentLoaded', function() {
+                                          var facebookIframe = document.querySelector('#facebook_iframe');
+                                          setupFBframe(facebookIframe);
+                                         
+                                          /* begin Window Resize                                            
+                                          ############################################ */
+                                          
+                                          // Why resizeThrottler? See more : https://developer.mozilla.org/ru/docs/Web/Events/resize
+                                          (function() {
+                                            window.addEventListener("resize", resizeThrottler, false);
+
+                                            var resizeTimeout;
+
+                                            function resizeThrottler() {
+                                              if (!resizeTimeout) {
+                                                resizeTimeout = setTimeout(function() {
+                                                  resizeTimeout = null;
+                                                  actualResizeHandler();
+                                                }, 66);
+                                              }
+                                            }
+
+                                            function actualResizeHandler() {
+                                              document.querySelector('#facebook_iframe').removeAttribute('src');
+                                              setupFBframe(facebookIframe);
+                                            }
+                                          })();
+                                          /* end Window Resize
+                                          ############################################ */
+                                        });
+                                    </script>
                                     @else
                                     <p class="box-body-operating link-txt">We don’t know the Facebook page of this organization. <br>If you do please <a href="http://mygov.nyc/contact" target="_blank">let us know</a>.</p>
                                     @endif
@@ -212,6 +290,8 @@
         });
     }
 
+  
+    
 
 </script>
 
