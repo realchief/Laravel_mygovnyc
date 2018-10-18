@@ -131,7 +131,7 @@
                                 <div class="box-body">
 
                                 @if($organization->Twitter)
-                                <div class="embed-responsive embed-responsive-16by9" style="overflow: overlay;padding-right:padding-right: 24px;">
+                                <div class="embed-responsive embed-responsive-16by9" style="overflow: overlay;padding-right:24px;">
                                     <a class="twitter-timeline" href="https://{{$organization->Twitter}}?ref_src=twsrc%5Etfw">Tweets by NYCSanitation</a> 
                                      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                                 </div>
