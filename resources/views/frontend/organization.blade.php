@@ -131,7 +131,7 @@
                                 <div class="box-body">
 
                                 @if($organization->Twitter)
-                                <div class="embed-responsive embed-responsive-16by9" style="overflow: overlay;">
+                                <div class="embed-responsive embed-responsive-16by9" style="overflow: overlay;padding-right:padding-right: 24px;">
                                     <a class="twitter-timeline" href="https://{{$organization->Twitter}}?ref_src=twsrc%5Etfw">Tweets by NYCSanitation</a> 
                                      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                                 </div>
@@ -145,7 +145,7 @@
                         <div class="col-sm-4">
                             <div class="box">
                                 <div class="box-header"><h3 class="box-title">Facebook <a  href="http://{{$organization->Facebook}}" target="_blank">(page)</a></h3></div>
-                                <div class="box-body">
+                                <div class="box-body text-center">
                                     @if($organization->Facebook)
                                     <aside class="widget--facebook--container">
                                         <div class="widget-facebook">
@@ -154,7 +154,7 @@
                                     </aside>
                                     <style type="text/css">
                                         .widget--facebook--container {
-                                          padding: 10px;
+                                          padding: 0px;
                                         }
 
                                         .widget-facebook {
