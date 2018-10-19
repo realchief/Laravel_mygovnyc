@@ -145,7 +145,7 @@
                         <div class="col-sm-4">
                             <div class="box">
                                 <div class="box-header"><h3 class="box-title">Facebook <a  href="http://{{$organization->Facebook}}" target="_blank">(page)</a></h3></div>
-                                <div class="box-body text-center">
+                                <div class="box-body">
                                     @if($organization->Facebook)
                                     <aside class="widget--facebook--container">
                                         <div class="widget-facebook">
