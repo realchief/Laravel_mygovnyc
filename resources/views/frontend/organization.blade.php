@@ -44,7 +44,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         @if($organization->logo!='')
-                                            <img src="{{$organization->logo}}" class="img-responsive center">
+                                            <a href="http://{{$organization->website}}" target="_blank"><img src="{{$organization->logo}}" class="img-responsive center"></a>
                                         @endif
                                     </div>
                                 </div>
