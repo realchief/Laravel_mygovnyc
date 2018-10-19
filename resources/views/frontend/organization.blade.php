@@ -135,7 +135,11 @@
                                     <a class="twitter-timeline" href="https://{{$organization->Twitter}}?ref_src=twsrc%5Etfw">Tweets by NYCSanitation</a> 
                                      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                                 </div>
-                               @else
+                                @elseif($organization->RSS || $organization->Facebook)
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <p class="box-body-operating link-txt" style="padding-top: 50%;">We don’t know the Twitter profile of this organization. <br>If you do please <a href="http://mygov.nyc/contact" target="_blank">let us know</a>.</p>
+                                    </div>
+                                @else
                                     <p class="box-body-operating link-txt">We don’t know the Twitter profile of this organization. <br>If you do please <a href="http://mygov.nyc/contact" target="_blank">let us know</a>.</p>
                                 @endif
                                    
@@ -228,6 +232,10 @@
                                           ############################################ */
                                         });
                                     </script>
+                                    @elseif($organization->Twitter || $organization->RSS)
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <p class="box-body-operating link-txt" style="padding-top: 50%;">We don’t know the Facebook page of this organization. <br>If you do please <a href="http://mygov.nyc/contact" target="_blank">let us know</a>.</p>
+                                    </div>
                                     @else
                                     <p class="box-body-operating link-txt">We don’t know the Facebook page of this organization. <br>If you do please <a href="http://mygov.nyc/contact" target="_blank">let us know</a>.</p>
                                     @endif
@@ -241,10 +249,15 @@
                                     
                                     @if($organization->RSS)
                                     <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe class="embed-responsive-item" frameborder="0" src="//rss.bloople.net/?url=http://{{$organization->RSS}}feed%2F&detail=&type=html" scrolling="yes" allowfullscreen></iframe>
+                                        <iframe class="embed-responsive-item" frameborder="0" src="//rss.bloople.net/?url=http://{{$organization->RSS}}feed%2F&detail=&type=html" scrolling="yes" allowfullscreen id="newsiframe"></iframe>
                                     </div>
+                                    @elseif($organization->Twitter || $organization->Facebook)
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <p class="box-body-operating link-txt" style="padding-top: 50%;">We don’t know the News feed of this organization. <br>If you do please <a href="http://mygov.nyc/contact" target="_blank">let us know</a>.</p>
+                                        </div>
                                     @else
-                                    <p class="box-body-operating link-txt">We don’t know the News feed of this organization. <br>If you do please <a href="http://mygov.nyc/contact" target="_blank">let us know</a>.</p>
+                                        <p class="box-body-operating link-txt">We don’t know the News feed of this organization. <br>If you do please <a href="http://mygov.nyc/contact" target="_blank">let us know</a>.</p>
+                        
                                     @endif
 
                                 </div>
@@ -292,7 +305,9 @@
         });
     }
 
-  
+  setTimeout(function(){var iframe = $('#newsiframe');
+  $('.rss2html-note',iframe.contents()).hide();},5000);
+
     
 
 </script>
