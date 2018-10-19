@@ -238,13 +238,15 @@
                             <div class="box">
                                 <div class="box-header"><h3 class="box-title">News <a  href="http://{{$organization->RSS}}" target="_blank">(feed)</a></h3></div>
                                 <div class="box-body">
-                                    <div class="embed-responsive embed-responsive-16by9">
+                                    
                                     @if($organization->RSS)
+                                    <div class="embed-responsive embed-responsive-16by9">
                                         <iframe class="embed-responsive-item" frameborder="0" src="//rss.bloople.net/?url=http://{{$organization->RSS}}feed%2F&detail=&type=html" scrolling="yes" allowfullscreen></iframe>
+                                    </div>
                                     @else
                                     <p class="box-body-operating link-txt">We don’t know the News feed of this organization. <br>If you do please <a href="http://mygov.nyc/contact" target="_blank">let us know</a>.</p>
                                     @endif
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
