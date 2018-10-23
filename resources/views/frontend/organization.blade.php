@@ -6,7 +6,7 @@
 <div class="demo-container mdl-grid">
     <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--12-col">
         <div class="page-title row">
-            <div class="pull-right hidden-xs">
+            <div class="pull-right">
               <p class="text-tages"> Tags: <?php 
                 $tag_names = explode(',', $organization->tag_names);
                 ?>
@@ -17,7 +17,7 @@
                 @endif
               @endforeach</p>
             </div>
-            <div class="pull-right hidden-xs" style="padding-left: 20px;padding-right: 10px;">
+            <div class="pull-right" style="padding-left: 20px;padding-right: 10px;">
               <p class="text-types"> Type: <span class="badge bg-blue">{{$organization_type}}</span></p>
             </div>
             <div class="pull-left">{{$organization->name}}</div>
@@ -30,7 +30,7 @@
                 <li><a href="/organization_{{$organization->organizations_id}}/projects" id="projects_tab">PROJECTS</a></li>
                 <li><a href="/organization_{{$organization->organizations_id}}/services" id="services_tab">SERVICES</a></li>
                 <li><a href="/organization_{{$organization->organizations_id}}/money" id="money_tab">MONEY</a></li>
-                <li><a href="/organization_{{$organization->organizations_id}}/peoples" id="peoples_tab">PEOPLE</a></li>
+                <li><a href="/organization_{{$organization->organizations_id}}/people" id="peoples_tab">PEOPLE</a></li>
                 <li style="width:188px;"><a href="/organization_{{$organization->organizations_id}}/laws" id="laws_tab">LAWS, CODE & RULES</a></li>
             </ul>
             <div class="tab-content">

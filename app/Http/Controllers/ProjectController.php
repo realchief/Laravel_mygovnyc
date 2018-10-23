@@ -87,15 +87,26 @@ class ProjectController extends Controller
         return view('frontend.projects_filter', compact('allprojects'))->render();
     }
 
-    public function find($id)
+    public function find($id, $project_id)
+    {   
+
+        $organization = Organization::where('organizations_id','=',$id)->leftjoin('tags', 'organizations.tags', 'like', DB::raw("concat('%', tags.tag_id, '%')"))->select('organizations.*', 'organizations.description as organization_description', DB::raw('group_concat(DISTINCT(tags.tag_name)) as tag_names'))->groupBy('organizations.organization_id')->first();
+
+
+        $project = DB::table('projects')->where('project_projectid', $project_id)->leftJoin('agencies', 'projects.project_managingagency', '=', 'agency_recordid')->select('projects.project_projectid', 'agencies.magency', 'agencies.magencyacro', 'agencies.magencyname','projects.project_description','projects.project_commitments','projects.project_totalcost','projects.project_citycost','projects.project_noncitycost','projects.project_type','projects.project_lat','projects.project_long')->first();
+
+        $commitments = DB::table('commitments')->where('projectid', $id)->get();
+        return view('frontend.organization_project', compact('organization', 'commitments','project'))->render();
+    }
+
+    public function projectfind($id)
     {   
 
         $project = DB::table('projects')->where('project_recordid', $id)->leftJoin('agencies', 'projects.project_managingagency', '=', 'agency_recordid')->select('projects.project_projectid', 'agencies.magency', 'agencies.magencyacro', 'agencies.magencyname','projects.project_description','projects.project_commitments','projects.project_totalcost','projects.project_citycost','projects.project_noncitycost','projects.project_type','projects.project_lat','projects.project_long')->first();
 
         $commitments = DB::table('commitments')->where('projectid', $id)->get();
-        return view('frontend.project', compact('commitments','project'))->render();
+        return view('frontend.project', compact('organization', 'commitments','project'))->render();
     }
-
     //project type find
     public function projecttypefind($id)
     {

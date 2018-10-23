@@ -31,7 +31,7 @@
                 <li><a href="/organization_{{$organization->organizations_id}}/projects" id="projects_tab">PROJECTS</a></li>
                 <li class="active"><a href="/organization_{{$organization->organizations_id}}/services" id="services_tab">SERVICES</a></li>
                 <li><a href="/organization_{{$organization->organizations_id}}/money" id="money_tab">MONEY</a></li>
-                <li><a href="/organization_{{$organization->organizations_id}}/peoples" id="peoples_tab">PEOPLE</a></li>
+                <li><a href="/organization_{{$organization->organizations_id}}/people" id="peoples_tab">PEOPLE</a></li>
                 <li style="width:188px;"><a href="/organization_{{$organization->organizations_id}}/laws" id="laws_tab">LAWS, CODE & RULES</a></li>
             </ul>
             <div class="tab-content">
@@ -45,7 +45,7 @@
                               @foreach($organization_services as $organization_service)
                                   <div class="box box-service">
                                       <p>Category: {{$organization_service->taxonomy_name}}</p>
-                                      <p class="text-aqua" id="{{$organization_service->service_id}}">{{$organization_service->name}}</p>
+                                      <p class="text-aqua"><a href="/organization_{{$organization->organizations_id}}/services/{{$organization_service->name}}">{{$organization_service->name}}</a></p>
                                       <p>Proviced by: {{$organization->name}}</p>
                                       <p>Phone: {!! $organization_service->phone_numbers !!}</p>
                                   </div>
@@ -71,7 +71,6 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script>
-<script src="{{ asset('js/frontend/organization_service_ajax.js') }}"></script>
 <script type="text/javascript">
 
     var locations = <?php print_r(json_encode($organization_map)) ?>;

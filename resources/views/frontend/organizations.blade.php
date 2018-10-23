@@ -6,12 +6,12 @@
 
 <div class="demo-container mdl-grid">
     <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--12-col" style="padding-top: 0;">
-        <div class="col-sm-3" style="border-right: 1px solid #3f3f3f; height: 100%;">
+        <div class="col-md-3 side-filter" style="border-right: 1px solid #3f3f3f; height: 100%;">
             <div class="row">
                 @include('layouts.agency_sidebar')
             </div>
         </div>
-        <div class="col-sm-9" id="organization_content">
+        <div class="col-md-9" id="organization_content">
             <div class="demo-container">
                 @foreach ($organizations as $organization)
                 <div class="col-md-4" style="padding: 0;">

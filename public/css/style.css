@@ -93,6 +93,7 @@ footer.mdl-mini-footer{
   padding-left: 56px;
   padding-right: 62px;
   margin: 0;
+  line-height: 30px;
 }
 .text-title-tages{
 	color: #02435f;
@@ -548,4 +549,18 @@ dt{
 }
 .embed-responsive-16by9{
   padding-bottom: 500px;
+}
+@media (max-width: 479px){
+  .side-filter{
+    height: auto !important;
+    border-right: 0 !important;
+  }
+}
+@media screen and (max-width: 1024px){
+  .mdl-layout__header-row {
+      padding: 0 16px 0 50px;
+  }
+}
+.tab-content{
+  min-height: 80vh;
 }

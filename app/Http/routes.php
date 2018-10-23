@@ -41,7 +41,7 @@ Route::get('/organization_all', 'OrganizationController@all');
 
 Route::get('/organization_{id}/projects', 'OrganizationController@projects');
 Route::get('/organization_{id}/services', 'OrganizationController@services');
-Route::get('/organization_{id}/peoples', 'OrganizationController@peoples');
+Route::get('/organization_{id}/people', 'OrganizationController@peoples');
 Route::get('/organization_{id}/money', 'OrganizationController@money');
 Route::get('/organization_{id}/laws', 'OrganizationController@laws');
 Route::get('/organization_{id}', 'OrganizationController@find');
@@ -53,14 +53,17 @@ Route::post('/organizations_search', 'OrganizationController@search');
 Route::get('/services', 'ServiceController@index');
 Route::get('/service_all', 'ServiceController@all');
 Route::get('/service_{id}', 'ServiceController@find');
-Route::post('/organizationservice_{id}', 'ServiceController@find');
+Route::post('/organizationservice_{id}', 'ServiceController@servicefind');
+Route::get('/organization_{id}/services/{service_id}', 'ServiceController@find');
 Route::post('/services_filter', 'ServiceController@filter');
 Route::post('/services_search', 'ServiceController@search');
 
 //Projects
 Route::get('/projects', 'ProjectController@projectview');
 Route::get('/projects_{id}', 'ProjectController@projectfind');
-Route::post('/organizationproject_{id}', 'ProjectController@find');
+Route::post('/organizationproject_{id}', 'ProjectController@projectfind');
+Route::get('/organization_{id}/projects/{project_id}', 'ProjectController@find');
+
 
 Route::get('/projecttype_{id}', 'ProjectController@projecttypefind');
 Route::get('/projectcategory_{id}', 'ProjectController@category');
@@ -72,7 +75,7 @@ Route::post('/projects_search', 'ProjectController@search');
 //Peoples
 Route::get('/people', 'PeopleController@index');
 Route::get('/people_{id}', 'PeopleController@find');
-Route::post('/organizationpeople_{id}', 'PeopleController@find');
+Route::get('/organization_{id}/people/{people_id}', 'PeopleController@find');
 
 Route::get('/organizationtype_{id}', 'PeopleController@organizationtypefind');
 

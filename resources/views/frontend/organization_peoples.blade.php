@@ -31,7 +31,7 @@
                 <li><a href="/organization_{{$organization->organizations_id}}/projects" id="projects_tab">PROJECTS</a></li>
                 <li><a href="/organization_{{$organization->organizations_id}}/services" id="services_tab">SERVICES</a></li>
                 <li><a href="/organization_{{$organization->organizations_id}}/money" id="money_tab">MONEY</a></li>
-                <li class="active"><a href="/organization_{{$organization->organizations_id}}/peoples" id="peoples_tab">PEOPLE</a></li>
+                <li class="active"><a href="/organization_{{$organization->organizations_id}}/people" id="peoples_tab">PEOPLE</a></li>
                 <li style="width:188px;"><a href="/organization_{{$organization->organizations_id}}/laws" id="laws_tab">LAWS, CODE & RULES</a></li>
             </ul>
             <div class="tab-content">
@@ -49,7 +49,7 @@
                         <tbody>
                             @foreach($organization_peoples as $organization_people)
                             <tr>
-                                <td class="people-link" id="{{$organization_people->contact_id}}">{{$organization_people->name}}</td>
+                                <td class="people-link" id="{{$organization_people->contact_id}}"><a href="/organization_{{$organization->organizations_id}}/people/{{$organization_people->name}}">{{$organization_people->name}}</a></td>
                                 <td>{{$organization_people->office_title}}</td>
                                 <td>{{$organization_people->division_name}}
                                 @if($organization_people->parent_division!=''), {{$organization_people->parent_division}}@endif @if($organization_people->grand_parent_division!=''), {{$organization_people->grand_parent_division}}@endif
@@ -66,7 +66,7 @@
 
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script>
-<script src="{{ asset('js/frontend/organization_people_ajax.js') }}"></script>
+
 <script src="{{asset('bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 <script>

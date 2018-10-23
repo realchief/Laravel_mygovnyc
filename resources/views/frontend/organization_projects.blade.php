@@ -22,7 +22,7 @@
               <p class="text-types"> Type: <span class="badge bg-blue">{{$organization->type}}</span></p>
             </div>
             <div class="pull-left">{{$organization->name}}</div>
-            <input type="hidden" id="organizations_id" value="{{$organization->organizations_id}}">
+        
         </div>
         <div class="menu-bar row">
 
@@ -31,7 +31,7 @@
                 <li class="active"><a href="/organization_{{$organization->organizations_id}}/projects" id="projects_tab">PROJECTS</a></li>
                 <li><a href="/organization_{{$organization->organizations_id}}/services" id="services_tab">SERVICES</a></li>
                 <li><a href="/organization_{{$organization->organizations_id}}/money" id="money_tab">MONEY</a></li>
-                <li><a href="/organization_{{$organization->organizations_id}}/peoples" id="peoples_tab">PEOPLE</a></li>
+                <li><a href="/organization_{{$organization->organizations_id}}/people" id="peoples_tab">PEOPLE</a></li>
                 <li style="width:188px;"><a href="/organization_{{$organization->organizations_id}}/laws" id="laws_tab">LAWS, CODE & RULES</a></li>
             </ul>
             <div class="tab-content">
@@ -58,7 +58,7 @@
                                                 <tr>
                                                   <td>{{$organization_project->project_description}}</td>
                                                   <td class="text-right" style="padding-right: 50px;">${{number_format($organization_project->project_totalcost)}}</td>
-                                                  <td class="project-link" id="{{$organization_project->project_recordid}}">{{$organization_project->project_projectid}}</td>
+                                                  <td class="project-link"><a href="/organization_{{$organization->organizations_id}}/projects/{{$organization_project->project_projectid}}">{{$organization_project->project_projectid}}</a></td>
                                                 </tr>
                                             @endif
                                         @endforeach
@@ -87,7 +87,6 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script>
-<script src="{{ asset('js/frontend/organization_project_ajax.js') }}"></script>
 <script src="{{asset('bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 <script>

@@ -1,6 +1,6 @@
-<aside class="main-sidebar">
+<aside class="">
     <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
+    <section class="sidebar" style="padding-top: 20px;">
       <!-- search form -->
       <div class="sidebar-form">
         <div class="has-feedback">
