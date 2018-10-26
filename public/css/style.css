@@ -564,3 +564,14 @@ dt{
 .tab-content{
   min-height: 80vh;
 }
+.btn-filter{
+  display: none;
+}
+@media (max-width: 768px){
+  .btn-filter{
+    display: block !important;
+  }
+  .side-filter{
+    display: none;
+  }
+}

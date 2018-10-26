@@ -1,4 +1,4 @@
-<aside class="main-sidebar">
+<aside class="">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- search form -->
@@ -60,6 +60,10 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
+
+      $('.btn-filter').click(function(){
+          $('.side-filter').toggle()
+      });
 
       $('#search_service').change(function(){
         search_service();

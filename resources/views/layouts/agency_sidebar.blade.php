@@ -63,6 +63,10 @@
   <script type="text/javascript">
     $(document).ready(function () {
 
+      $('.btn-filter').click(function(){
+          $('.side-filter').toggle()
+      });
+
       $('#search_agency').change(function(){
         search_agency();
 

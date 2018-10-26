@@ -1,6 +1,6 @@
-<aside class="main-sidebar">
+<aside class="">
     <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
+    <section class="sidebar"  style="padding-top: 20px;">
       <!-- search form -->
       <div class="sidebar-form">
         <div class="has-feedback">
@@ -10,14 +10,7 @@
           </div>        
         </div>
       </div>
-<!--       <form action="#" method="get" class="sidebar-form">
-        <div class="has-feedback">
-          <span class="glyphicon glyphicon-search form-control-input"></span>
-          <div class="form-group is-empty">
-            <input type="text" class="form-control form-input" placeholder="Search Address">
-          </div>        
-        </div>
-      </form> -->
+
       <hr>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -65,6 +58,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script>
   <script type="text/javascript">
     $(document).ready(function () {
+
+      $('.btn-filter').click(function(){
+          $('.side-filter').toggle()
+      });
 
       $('#search_project').change(function(){
         search_project();
