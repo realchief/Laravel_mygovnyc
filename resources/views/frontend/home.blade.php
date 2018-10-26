@@ -80,5 +80,5 @@
     </div>
 
 </div>
-@include('layouts.script')
+<!-- @include('layouts.script') -->
 @endsection
