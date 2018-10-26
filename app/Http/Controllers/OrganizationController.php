@@ -177,9 +177,9 @@ class OrganizationController extends Controller
             if($check == 0)
                 $organizations = Organization::where('tags',$tags[0]);
             else
-                $organizations = $organizations->orwhere('tags', 'like', '%'.$tags[0].'%');
+                $organizations = $organizations->where('tags', 'like', '%'.$tags[0].'%');
             for($i = 1; $i < count($tags); $i++)
-                $organizations = $organizations->orwhere('tags', 'like', '%'.$tags[$i].'%');
+                $organizations = $organizations->where('tags', 'like', '%'.$tags[$i].'%');
             $check = 1;
 
         }
