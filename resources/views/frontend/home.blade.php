@@ -17,7 +17,7 @@
                             <div class="box" style="padding: 40px;border-top: 2px solid #d2d6de;">
                                 <div class="row">
                                     <div class="col-md-8" style="padding-top: 5px;">
-                                    <p>{!! $posts->body !!}</p>
+                                        <p>{!! $posts->body !!}</p>
                                     </div>
                                     <div class="col-md-4">
                                        
@@ -80,5 +80,5 @@
     </div>
 
 </div>
-<!-- @include('layouts.script') -->
+@include('layouts.script')
 @endsection
