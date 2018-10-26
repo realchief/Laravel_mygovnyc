@@ -167,34 +167,24 @@ class OrganizationController extends Controller
         // $find = $request->val; 
         $check = 0;
         if(isset($types[0])){
-            $organizations = Organization::where('type',$types[0]);
-            $count = 0;
-            for($i = 1; $i < count($types); $i++)
-                $organizations = $organizations->orwhere('type',$types[$i]);
+            $organizations = Organization::whereIn('type',$types);
             $check = 1;
         }
         if(isset($tags[0])){
             if($check == 0)
-                $organizations = Organization::where('tags',$tags[0]);
+               $organizations = Organization::where('tags',$tags[0]);
             else
-                $organizations = $organizations->where('tags', 'like', '%'.$tags[0].'%');
-            for($i = 1; $i < count($tags); $i++)
-                $organizations = $organizations->where('tags', 'like', '%'.$tags[$i].'%');
+                // $organizations = $organizations->whereIn('tags', $tags);
+            $organizations = $organizations->where(function ($query) use($tags) {
+                // $query = $query->where('tags', 'like', '%'.$tags[0].'%');
+                for($i = 0; $i < count($tags); $i++)
+                    $query->orwhere('tags', 'like', '%'.$tags[$i].'%');
+            });
+
             $check = 1;
 
         }
-        // if(isset($find)){
-            
-        //     if($check == 0)
-        //         $organizations = Organization::where(function($query) use ($find) {
-        //         $query->where('name', 'like', '%'.$find.'%')->orwhere('description', 'like', '%'.$find.'%');
-        //     });
-        //     else
-        //        $organizations = $organizations->where(function($query) use ($find) {
-        //         $query->where('name', 'like', '%'.$find.'%')->orwhere('description', 'like', '%'.$find.'%');
-        //     });
-        //     $check = 1;
-        // }        
+      
         if($check == 1)
             $organizations = $organizations->leftjoin('tags', 'organizations.tags', 'like', DB::raw("concat('%', tags.tag_id, '%')"))->select('organizations.*', DB::raw('group_concat(DISTINCT(tags.tag_name)) as tag_names'))->groupBy('organizations.organization_id')->get();
         else
