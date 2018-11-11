@@ -107,21 +107,33 @@
 <script type="text/javascript">
 
 
+function escapeHtml(text) {
+  return text
+      .replace("&amp;",'&')
+      .replace("&lt;",'<')
+      .replace("&gt;",'>')
+      .replace("&quot;",'"')
+      .replace("&#039;","'");
+}
+
+
 $('.taxonomy-checkbox').prop('checked',false);
 $('.taxonomy-checkbox').each(function(){
-    let inputval = $(this).next().html().toLowerCase();
+    let inputval = $(this).next().text().toLowerCase();
 
     let ser_cate = "{{$taxonomy->name}}";
-    if(inputval == ser_cate.toLowerCase()){
+    if(inputval == escapeHtml(ser_cate).toLowerCase()){
         $(this).prop('checked',true);
     }
 });
 
 $('.services-checkbox').prop('checked',false);
 $('.services-checkbox').each(function(){
-    let inputval = $(this).next().html().toLowerCase();
+    let inputval = $(this).next().text().toLowerCase();
     let ser_cate = "{{$organization}}";
-    if(inputval == ser_cate.toLowerCase()){
+    console.log(inputval);
+    console.log(escapeHtml(ser_cate));
+    if(inputval == escapeHtml(ser_cate).toLowerCase()){
         $(this).prop('checked',true);
     }
 });

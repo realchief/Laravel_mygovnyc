@@ -99,7 +99,7 @@
       }
       function send_datas(){
           var organization_value = [];
-          var cboxes = $('.servives-checkbox:checked');
+          var cboxes = $('.services-checkbox:checked');
           for(i = 0; i < cboxes.length; i ++)
             organization_value[i] = cboxes[i].value;
 
@@ -128,7 +128,7 @@
           });
       } 
     
-      $('.servives-checkbox').on('click', function(e) {
+      $('.services-checkbox').on('click', function(e) {
           send_datas();
       });
 
