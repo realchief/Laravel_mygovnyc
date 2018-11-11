@@ -109,24 +109,18 @@ class ProjectController extends Controller
         $commitments = DB::table('commitments')->where('projectid', $id)->get();
         return view('frontend.project', compact('organization_id', 'commitments','project'))->render();
     }
-    //project type find
-    public function projecttypefind($id)
-    {
-        //$pros = $this->pro->first();
 
-        $servicetypes = DB::table('taxonomies')->get();
-        $organizationtypes = DB::table('organizations')->distinct()->get(['type']);
-        $projecttypes = DB::table('projects')-> distinct()->get(['project_type']);
-        $service_name = '&nbsp;';
-        $organization_name = '&nbsp;';
-        $project_name = '&nbsp;';
-        $filter = collect([$organization_name, $service_name, $project_name]);
+    public function project($id)
+    {   
+        $project_types = Project::distinct()->get(['project_type']);
+        $organizations = Agency::orderBy('magencyacro', 'asc')->get();
 
-        $projecttype = DB::table('projects')->where('project_type', $id)->value('project_type');
-        $allprojects = Project::where('project_type', $id)->leftJoin('agencies', 'projects.project_managingagency', '=', 'agency_recordid')->select('projects.id','projects.project_recordid','projects.project_projectid', 'agencies.magency', 'agencies.magencyacro','projects.project_description','projects.project_commitments','projects.project_totalcost','projects.project_type')->orderBy('projects.project_projectid','desc')->sortable(['project_projectid'])->paginate(25);
-        $projecttypes = DB::table('projects')-> distinct()-> get(['project_type']);
+        $project = DB::table('projects')->where('project_description', $id)->leftJoin('agencies', 'projects.project_managingagency', '=', 'agency_recordid')->select('projects.project_projectid', 'agencies.magency', 'agencies.magencyacro', 'agencies.magencyname','projects.project_description','projects.project_commitments','projects.project_totalcost','projects.project_citycost','projects.project_noncitycost','projects.project_type','projects.project_lat','projects.project_long')->first();
 
-        return view('frontend.projects', compact('servicetypes','projecttypes','organizationtypes', 'filter', 'allprojects','projecttypes','projecttype'));
+        $organization_id = DB::table('organizations')->where('name', '=', $project->magencyacro)->first()->organizations_id;
+
+        $commitments = DB::table('commitments')->where('projectid', $id)->get();
+        return view('frontend.project1', compact('project_types', 'organizations', 'organization_id', 'commitments','project'))->render();
     }
 
     public function category($id)

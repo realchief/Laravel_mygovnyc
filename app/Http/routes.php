@@ -60,7 +60,7 @@ Route::post('/services_search', 'ServiceController@search');
 
 //Projects
 Route::get('/projects', 'ProjectController@projectview');
-Route::get('/projects_{id}', 'ProjectController@projectfind');
+Route::get('/projects/{id}', 'ProjectController@project');
 Route::post('/organizationproject_{id}', 'ProjectController@projectfind');
 Route::get('/organization_{id}/projects/{project_id}', 'ProjectController@find');
 

@@ -24,13 +24,13 @@
 
                                         <p><code> Alternate Name</code> {{$service->alternate_name}}</p>
 
-                                        <p><code> Organization</code><a href="/organization_{{$organization_x_id}}" style="color: #428bca;"> {{$organization}}</a></p>
+                                        <p><code> Organization</code><a href="/organization_{{$organization_x_id}}/services" style="color: #428bca;"> {{$organization}}</a></p>
 
                                         <p><code> Description</code> {!! $service->description !!}</p>
 
                                         <p><code> Status</code><span class="badge badge-green">{{$service->status}}</span></p>
 
-                                        <p><code> Service Category</code><a href="/category_{{$taxonomy->taxonomy_id}}" style="color: #428bca;"> {{$taxonomy->name}}</a></p>
+                                        <p><code> Service Category</code> {{$taxonomy->name}}</p>
 
                                         <a class="btn-yellow btn-sm" href="{{$service->url}}" target="_blank">Goto Website</a>
 
