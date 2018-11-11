@@ -51,23 +51,24 @@ class ProjectController extends Controller
         $project_type = $request->project_type;
          
         $check = 0;
+
+
         if(isset($ids[0])){
-            $allprojects = Project::where('project_managingagency',$ids[0]);
-            $count = 0;
-            for($i = 1; $i < count($ids); $i++)
-                $allprojects = $allprojects->orwhere('project_managingagency',$ids[$i]);
+            $allprojects = Project::whereIn('project_managingagency',$ids);
             $check = 1;
         }
         if(isset($project_type[0])){
             if($check == 0)
                 $allprojects = Project::where('project_type',$project_type[0]);
             else
-                $allprojects = $allprojects->orwhere('project_type',$project_type[0]);
-            for($i = 1; $i < count($project_type); $i++)
-                $allprojects = $allprojects->orwhere('project_type',$project_type[$i]);
+                $allprojects = $allprojects->where(function ($query) use($project_type) {
+                for($i = 0; $i < count($project_type); $i++)
+                    $query->orwhere('project_type', 'like', '%'.$project_type[$i].'%');
+            });
             $check = 1;
 
         }
+
         if($check == 1)
             $allprojects = $allprojects->get();
         else
