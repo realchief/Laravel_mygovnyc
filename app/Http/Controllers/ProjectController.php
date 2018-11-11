@@ -103,7 +103,7 @@ class ProjectController extends Controller
     public function projectfind($id)
     {   
 
-        $project = DB::table('projects')->where('project_description', $id)->leftJoin('agencies', 'projects.project_managingagency', '=', 'agency_recordid')->select('projects.project_projectid', 'agencies.magency', 'agencies.magencyacro', 'agencies.magencyname','projects.project_description','projects.project_commitments','projects.project_totalcost','projects.project_citycost','projects.project_noncitycost','projects.project_type','projects.project_lat','projects.project_long')->first();
+        $project = DB::table('projects')->where('project_projectid', $id)->leftJoin('agencies', 'projects.project_managingagency', '=', 'agency_recordid')->select('projects.project_projectid', 'agencies.magency', 'agencies.magencyacro', 'agencies.magencyname','projects.project_description','projects.project_commitments','projects.project_totalcost','projects.project_citycost','projects.project_noncitycost','projects.project_type','projects.project_lat','projects.project_long')->first();
 
         $organization_id = DB::table('organizations')->where('name', '=', $project->magencyacro)->first()->organizations_id;
 
@@ -116,7 +116,7 @@ class ProjectController extends Controller
         $project_types = Project::distinct()->get(['project_type']);
         $organizations = Agency::orderBy('magencyacro', 'asc')->get();
 
-        $project = DB::table('projects')->where('project_description', $id)->leftJoin('agencies', 'projects.project_managingagency', '=', 'agency_recordid')->select('projects.project_projectid', 'agencies.magency', 'agencies.magencyacro', 'agencies.magencyname','projects.project_description','projects.project_commitments','projects.project_totalcost','projects.project_citycost','projects.project_noncitycost','projects.project_type','projects.project_lat','projects.project_long')->first();
+        $project = DB::table('projects')->where('project_projectid', $id)->leftJoin('agencies', 'projects.project_managingagency', '=', 'agency_recordid')->select('projects.project_projectid', 'agencies.magency', 'agencies.magencyacro', 'agencies.magencyname','projects.project_description','projects.project_commitments','projects.project_totalcost','projects.project_citycost','projects.project_noncitycost','projects.project_type','projects.project_lat','projects.project_long')->first();
 
         $organization_id = DB::table('organizations')->where('name', '=', $project->magencyacro)->first()->organizations_id;
 
