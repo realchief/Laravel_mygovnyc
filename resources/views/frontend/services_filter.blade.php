@@ -1,6 +1,6 @@
 @foreach($organization_services as $organization_service)
     <div class="box box-service">
-    	<p class="text-aqua" id="{{$organization_service->service_id}}">{{$organization_service->name}}</p>
+    	<p class="text-aqua" id="{{$organization_service->name}}">{{$organization_service->name}}</p>
     	
         <p>Category: <span class="taxonomyid" id="{{$organization_service->taxonomy}}">{{$organization_service->taxonomy()->first()->name}}</span></p>
         

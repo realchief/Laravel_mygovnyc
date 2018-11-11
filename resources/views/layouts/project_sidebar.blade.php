@@ -90,6 +90,7 @@
           success: function(data){
               $('#loader').hide();
               $('#project_content').html(data);
+              window.history.replaceState({url: "" + window.location.href + ""}, '','/projects');
           }
         });
       }
@@ -121,6 +122,7 @@
             success: function(data){
                 $('#loader').hide();
                 $('#project_content').html(data);
+                window.history.replaceState({url: "" + window.location.href + ""}, '','/projects');
             }
           });
       }      

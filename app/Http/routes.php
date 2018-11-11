@@ -52,7 +52,7 @@ Route::post('/organizations_search', 'OrganizationController@search');
 //Services
 Route::get('/services', 'ServiceController@index');
 Route::get('/service_all', 'ServiceController@all');
-Route::get('/service_{id}', 'ServiceController@find');
+Route::get('/services/{id}', 'ServiceController@service');
 Route::post('/organizationservice_{id}', 'ServiceController@servicefind');
 Route::get('/organization_{id}/services/{service_id}', 'ServiceController@find');
 Route::post('/services_filter', 'ServiceController@filter');

@@ -32,7 +32,7 @@
                             <tr>
                               <td>{{$organization_project->project_description}}</td>
                               <td class="text-right" style="padding-right: 50px;">${{number_format($organization_project->project_totalcost)}}</td>
-                              <td class="project-link" id="{{$organization_project->project_recordid}}">{{$organization_project->project_projectid}}</td>
+                              <td class="project-link" id="{{$organization_project->project_description}}">{{$organization_project->project_projectid}}</td>
                             </tr>
                         @endif
                     @endforeach

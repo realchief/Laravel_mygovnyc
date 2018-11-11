@@ -45,7 +45,7 @@
                 <div class="checkbox">
                   <label>
 
-                    <input type="checkbox" name="services_organizations[]" value="{{$organization->organization_recordid}}" class="servives-checkbox">  <span class="subitem-list text-uppercase">{{$organization->organization_name}}</span>
+                    <input type="checkbox" name="services_organizations[]" value="{{$organization->organization_recordid}}" class="services-checkbox">  <span class="subitem-list text-uppercase">{{$organization->organization_name}}</span>
                   </label>
                 </div>
                 @endforeach
@@ -93,6 +93,7 @@
           success: function(data){
               $('#loader').hide();
               $('#service_content').html(data);
+               window.history.replaceState({url: "" + window.location.href + ""}, '','/services');
           }
         });
       }
@@ -122,6 +123,7 @@
             },
             success: function(data){
                 $('#service_content').html(data);
+                 window.history.replaceState({url: "" + window.location.href + ""}, '','/services');
             }
           });
       } 
@@ -155,6 +157,7 @@
             },
             success: function(data){
                 $('#service_content').html(data);
+                window.history.replaceState({url: "" + window.location.href + ""}, '','/services');
             }
           });
       });  
@@ -180,6 +183,7 @@
             },
             success: function(data){
                 $('#service_content').html(data);
+                window.history.replaceState({url: "" + window.location.href + ""}, '','/services');
             }
           });
       });

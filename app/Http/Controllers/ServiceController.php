@@ -93,24 +93,54 @@ class ServiceController extends Controller
     public function servicefind($id)
     {
 
-        $service = Service::where('service_id','=',$id)->first();
+        $service = Service::where('name','=',$id)->first();
 
-        $servicename = Service::where('service_id','=', $id)->value('name');
-        $service_organization = Service::where('service_id','=', $id)->value('organization');
+        $servicename = Service::where('name','=', $id)->value('name');
+        $service_organization = Service::where('name','=', $id)->value('organization');
 
-        $service_taxonomy = Service::where('service_id','=', $id)->value('taxonomy');
-        $service_contact = Service::where('service_id','=', $id)->value('contacts');
-        $service_map = DB::table('services')->where('service_id','=',$id)->leftjoin('locations', 'services.locations', 'like', DB::raw("concat('%', locations.location_id, '%')"))->leftjoin('address', 'locations.address', 'like', DB::raw("concat('%', address.address_id, '%')"))->get();
+        $service_taxonomy = Service::where('name','=', $id)->value('taxonomy');
+        $service_contact = Service::where('name','=', $id)->value('contacts');
+        $service_map = DB::table('services')->where('services.name','=',$id)->leftjoin('locations', 'services.locations', 'like', DB::raw("concat('%', locations.location_id, '%')"))->leftjoin('address', 'locations.address', 'like', DB::raw("concat('%', address.address_id, '%')"))->get();
 
-        $organization = DB::table('services_organizations')->where('organization_x_id', '=', $service_organization)->value('organization_name');
+        $organization = DB::table('services_organizations')->where('organization_recordid', '=', $service_organization)->value('organization_name');
+
+        $organization_x_id = DB::table('services_organizations')->where('organization_recordid', '=', $service_organization)->value('organization_x_id');
 
         $taxonomy = Taxonomy::where('taxonomy_id', '=', $service_taxonomy)->select('taxonomy_id', 'name')->first();
         $contacts = Contact::where('contact_id', '=', $service_contact)->value('name');
 
         
-        $service_details = DB::table('services')->where('service_id', '=', $id)->leftjoin('details', 'services.details', 'like', DB::raw("concat('%', details.detail_id, '%')"))->select('details.value', 'details.detail_type')->get();
+        $service_details = DB::table('services')->where('name', '=', $id)->leftjoin('details', 'services.details', 'like', DB::raw("concat('%', details.detail_id, '%')"))->select('details.value', 'details.detail_type')->get();
  
-        return view('frontend.service', compact('taxonomys','service_name','service','organization','program','taxonomy', 'contacts', 'service_map', 'service_details','servicename'))->render();
+        return view('frontend.service', compact('taxonomys','service_name','service','organization', 'organization_x_id', 'program','taxonomy', 'contacts', 'service_map', 'service_details','servicename'))->render();
+    }
+
+    public function service($id)
+    {
+
+        $service = Service::where('name','=',$id)->first();
+
+        $servicename = Service::where('name','=', $id)->value('name');
+        $service_organization = Service::where('name','=', $id)->value('organization');
+
+        $service_taxonomy = Service::where('name','=', $id)->value('taxonomy');
+        $service_contact = Service::where('name','=', $id)->value('contacts');
+        $service_map = DB::table('services')->where('services.name','=',$id)->leftjoin('locations', 'services.locations', 'like', DB::raw("concat('%', locations.location_id, '%')"))->leftjoin('address', 'locations.address', 'like', DB::raw("concat('%', address.address_id, '%')"))->get();
+
+        $organization = DB::table('services_organizations')->where('organization_recordid', '=', $service_organization)->value('organization_name');
+
+        $organization_x_id = DB::table('services_organizations')->where('organization_recordid', '=', $service_organization)->value('organization_x_id');
+
+        $taxonomy = Taxonomy::where('taxonomy_id', '=', $service_taxonomy)->select('taxonomy_id', 'name')->first();
+        $contacts = Contact::where('contact_id', '=', $service_contact)->value('name');
+
+        
+        $service_details = DB::table('services')->where('name', '=', $id)->leftjoin('details', 'services.details', 'like', DB::raw("concat('%', details.detail_id, '%')"))->select('details.value', 'details.detail_type')->get();
+
+        $taxonomies = Taxonomy::all();
+        $services_organizations = DB::table('services_organizations')->get();
+ 
+        return view('frontend.service1', compact('taxonomys','service_name','service','organization', 'organization_x_id','program', 'taxonomy', 'contacts', 'service_map', 'service_details','servicename', 'taxonomies', 'services_organizations'));
     }
 
     public function find($id, $service_id)

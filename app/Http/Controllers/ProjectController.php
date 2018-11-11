@@ -102,10 +102,12 @@ class ProjectController extends Controller
     public function projectfind($id)
     {   
 
-        $project = DB::table('projects')->where('project_recordid', $id)->leftJoin('agencies', 'projects.project_managingagency', '=', 'agency_recordid')->select('projects.project_projectid', 'agencies.magency', 'agencies.magencyacro', 'agencies.magencyname','projects.project_description','projects.project_commitments','projects.project_totalcost','projects.project_citycost','projects.project_noncitycost','projects.project_type','projects.project_lat','projects.project_long')->first();
+        $project = DB::table('projects')->where('project_description', $id)->leftJoin('agencies', 'projects.project_managingagency', '=', 'agency_recordid')->select('projects.project_projectid', 'agencies.magency', 'agencies.magencyacro', 'agencies.magencyname','projects.project_description','projects.project_commitments','projects.project_totalcost','projects.project_citycost','projects.project_noncitycost','projects.project_type','projects.project_lat','projects.project_long')->first();
+
+        $organization_id = DB::table('organizations')->where('name', '=', $project->magencyacro)->first()->organizations_id;
 
         $commitments = DB::table('commitments')->where('projectid', $id)->get();
-        return view('frontend.project', compact('organization', 'commitments','project'))->render();
+        return view('frontend.project', compact('organization_id', 'commitments','project'))->render();
     }
     //project type find
     public function projecttypefind($id)
