@@ -60,22 +60,21 @@ class ServiceController extends Controller
         // exit(); 
         $check = 0;
         if(isset($ids[0])){
-            $organization_services = Service::where('organization',$ids[0]);
-            $count = 0;
-            for($i = 1; $i < count($ids); $i++)
-                $organization_services = $organization_services->orwhere('organization',$ids[$i]);
+            $organization_services = Service::whereIn('organization',$ids);
             $check = 1;
         }
         if(isset($taxonomies[0])){
             if($check == 0)
                 $organization_services = Service::where('taxonomy',$taxonomies[0]);
             else
-                $organization_services = $organization_services->orwhere('taxonomy',$taxonomies[0]);
-            for($i = 1; $i < count($taxonomies); $i++)
-                $organization_services = $organization_services->orwhere('taxonomy',$taxonomies[$i]);
+                $organization_services = $organization_services->where(function ($query) use($taxonomies) {
+                for($i = 0; $i < count($taxonomies); $i++)
+                    $query->orwhere('taxonomy', 'like', '%'.$taxonomies[$i].'%');
+            });
             $check = 1;
 
         }
+
         if($check == 1)
             $organization_services = $organization_services->leftjoin('services_phones', 'services.phones', 'like', DB::raw("concat('%', services_phones.phone_recordid, '%')"))->groupBy('services.id')->get();
         else
