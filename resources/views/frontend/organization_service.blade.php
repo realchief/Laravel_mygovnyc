@@ -69,7 +69,7 @@
 
                                                                 <p><code> Status</code><span class="badge badge-green">{{$service->status}}</span></p>
 
-                                                                <p><code> Service Category</code><a href="/category_{{$taxonomy->taxonomy_id}}" style="color: #428bca;">{{$taxonomy->name}}</a></p>
+                                                                <p><code> Service Category</code> {{$taxonomy->name}}</p>
 
                                                                 <a class="btn-yellow btn-sm" href="{{$service->url}}" target="_blank">Goto Website</a>
 

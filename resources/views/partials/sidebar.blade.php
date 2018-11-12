@@ -1,7 +1,7 @@
 <div class="mdl-layout__drawer">
-	<img src="../images/logo.png" class="img-responsive">
+	
 	<nav class="mdl-navigation">
-		<a class="mdl-navigation__link" href="/">Home</a>
+		<a class="mdl-navigation__link" href="/"><img src="../../../images/logo.png" class="img-responsive"></a>
 		<a class="mdl-navigation__link" href="/organizations">Organizations</a>
 		<a class="mdl-navigation__link" href="/services">Services</a>
 		<a class="mdl-navigation__link" href="/projects">Projects</a>
