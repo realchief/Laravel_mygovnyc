@@ -99,7 +99,7 @@ class ServiceController extends Controller
 
         $service_taxonomy = Service::where('name','=', $id)->value('taxonomy');
         $service_contact = Service::where('name','=', $id)->value('contacts');
-        $service_map = DB::table('services')->where('services.name','=',$id)->leftjoin('locations', 'services.locations', 'like', DB::raw("concat('%', locations.location_id, '%')"))->leftjoin('address', 'locations.address', 'like', DB::raw("concat('%', address.address_id, '%')"))->get();
+        $service_map = DB::table('services')->where('services.name','=',$id)->leftjoin('locations', 'services.locations', 'like', DB::raw("concat('%', locations.location_id, '%')"))->leftjoin('services_address', 'locations.address', 'like', DB::raw("concat('%', services_address.address_recordid, '%')"))->get();
 
         $organization = DB::table('services_organizations')->where('organization_recordid', '=', $service_organization)->value('organization_name');
 
@@ -124,7 +124,7 @@ class ServiceController extends Controller
 
         $service_taxonomy = Service::where('name','=', $id)->value('taxonomy');
         $service_contact = Service::where('name','=', $id)->value('contacts');
-        $service_map = DB::table('services')->where('services.name','=',$id)->leftjoin('locations', 'services.locations', 'like', DB::raw("concat('%', locations.location_id, '%')"))->leftjoin('address', 'locations.address', 'like', DB::raw("concat('%', address.address_id, '%')"))->get();
+        $service_map = DB::table('services')->where('services.name','=',$id)->leftjoin('locations', 'services.locations', 'like', DB::raw("concat('%', locations.location_id, '%')"))->leftjoin('services_address', 'locations.address', 'like', DB::raw("concat('%', services_address.address_recordid, '%')"))->get();
 
         $organization = DB::table('services_organizations')->where('organization_recordid', '=', $service_organization)->value('organization_name');
 

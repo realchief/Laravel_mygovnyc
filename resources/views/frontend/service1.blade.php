@@ -75,7 +75,7 @@
                                                     <p><code>Address</code></p>
                                                         @if($service->locations!='')
                                                             @foreach($service_map as $servicemap)
-                                                                <p><a href="location_{{$servicemap->location_id}}">{{$servicemap->name}}</a>: {{$servicemap->address_1}}, {{$servicemap->city}}, {{$servicemap->state_province}}, {{$servicemap->postal_code}}</p>
+                                                                <p><a href="location_{{$servicemap->location_id}}">{{$servicemap->name}}</a>: {{$servicemap->services_address_1}}, {{$servicemap->services_address_city}}, {{$servicemap->services_address_state_province}}, {{$servicemap->services_address_postalcode}}</p>
                                                             @endforeach
                                                         @endif
                                                     <p><code>Contact</code>{{$contacts}}</p>
@@ -151,7 +151,7 @@ $.each( locations, function( index, value ){
       lng: value.longitude,
       title: value.name,
      infoWindow: {
-        content: ('<a href="location_'+value.location_id+'">'+value.name+'</a></br>' +value.address_1+', ' +value.city+', '+value.state_province+', '+value.postal_code)
+        content: ('<a>'+value.name+'</a></br>' +value.services_address_1+', ' +value.services_address_city+', '+value.services_address_state_province+', '+value.services_address_postalcode)
     }
     });
 });
