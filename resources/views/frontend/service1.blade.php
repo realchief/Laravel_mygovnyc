@@ -75,7 +75,7 @@
                                                     <p><code>Address</code></p>
                                                         @if($service->locations!='')
                                                             @foreach($service_map as $servicemap)
-                                                                <p><a href="location_{{$servicemap->location_id}}">{{$servicemap->name}}</a>: {{$servicemap->services_address_1}}, {{$servicemap->services_address_city}}, {{$servicemap->services_address_state_province}}, {{$servicemap->services_address_postalcode}}</p>
+                                                                <p><a>{{$servicemap->name}}</a>: {{$servicemap->services_address_1}}, {{$servicemap->services_address_city}}, {{$servicemap->services_address_state_province}}, {{$servicemap->services_address_postalcode}}</p>
                                                             @endforeach
                                                         @endif
                                                     <p><code>Contact</code>{{$contacts}}</p>
