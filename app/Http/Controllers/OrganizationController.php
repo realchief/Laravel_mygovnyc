@@ -144,6 +144,14 @@ class OrganizationController extends Controller
 
         return view('frontend.organization_laws', compact('organization'));
     }
+
+
+    public function legislation($id)
+    {
+        $organization = Organization::where('organizations_id','=',$id)->leftjoin('tags', 'organizations.tags', 'like', DB::raw("concat('%', tags.tag_id, '%')"))->select('organizations.*', 'organizations.description as organization_description', DB::raw('group_concat(DISTINCT(tags.tag_name)) as tag_names'))->groupBy('organizations.organization_id')->first();
+
+        return view('frontend.organization_legislation', compact('organization'));
+    }
     /**
      * Store a newly created resource in storage.
      *

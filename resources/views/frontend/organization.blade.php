@@ -32,6 +32,7 @@
                 <li><a href="/organization_{{$organization->organizations_id}}/money" id="money_tab">MONEY</a></li>
                 <li><a href="/organization_{{$organization->organizations_id}}/people" id="peoples_tab">PEOPLE</a></li>
                 <li style="width:188px;"><a href="/organization_{{$organization->organizations_id}}/laws" id="laws_tab">LAWS, CODE & RULES</a></li>
+                <li style="width:125px;"><a href="/organization_{{$organization->organizations_id}}/legislation" id="legislation_tab">LEGISLATION</a></li>
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="about">
