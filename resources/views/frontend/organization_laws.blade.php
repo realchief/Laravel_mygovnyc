@@ -32,7 +32,7 @@
                 <li><a href="/organization_{{$organization->organizations_id}}/services" id="services_tab">SERVICES</a></li>
                 <li><a href="/organization_{{$organization->organizations_id}}/money" id="money_tab">MONEY</a></li>
                 <li><a href="/organization_{{$organization->organizations_id}}/people" id="peoples_tab">PEOPLE</a></li>
-                <li class="active" style="width:188px;"><a href="/organization_{{$organization->organizations_id}}/laws" id="laws_tab">LAWS, CODE & RULES</a></li>
+                <li class="active" style="width:216px;"><a href="/organization_{{$organization->organizations_id}}/laws" id="laws_tab">CHARTER, CODE & RULES</a></li>
                 <li style="width:125px;"><a href="/organization_{{$organization->organizations_id}}/legislation" id="legislation_tab">LEGISLATION</a></li>
             </ul>
             <div class="tab-content">
@@ -52,6 +52,7 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="box text-center" style="min-height: 390px;">
+                                
                                 <div class="box-header"><h3 class="box-title">Administrative Code</h3></div>
                                 <div class="box-body">
                                     <iframe frameborder=0 src="http://{{$organization->code}}" class="charter-iframe"></iframe>
