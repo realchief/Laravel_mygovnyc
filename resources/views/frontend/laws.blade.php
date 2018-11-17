@@ -33,8 +33,8 @@
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <h3 class="box-title" style="margin: 0; margin-bottom: 10px;">Events (<a href="https://laws.council.nyc.gov/events/" target="_blank">Go to Calendar</a>)</h3>
-                                   <iframe src="https://feed.mikle.com/widget/v2/95922/" height="256px" width="100%" class="fw-iframe" scrolling="no" frameborder="0"></iframe>       
+                                <h3 class="box-title" style="margin: 16px 0;">Events (<a href="https://laws.council.nyc.gov/events/" target="_blank">Go to Calendar</a>)</h3>
+                                   <iframe src="https://feed.mikle.com/widget/v2/95922/" height="256px" width="100%" class="fw-iframe" scrolling="no" frameborder="0" style="height: 175px;"></iframe>       
                             </div>
                         </div>
                     </div>
