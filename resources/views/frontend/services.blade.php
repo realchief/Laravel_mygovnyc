@@ -14,9 +14,9 @@
             </div>
         </div>
 
-        <div class="col-sm-9" id="service_content" style="padding: 0;padding-top: 20px;">
+        <div class="col-sm-9" style="padding: 0;padding-top: 20px;">
             
-            <div class="col-sm-8" id="services_filter">
+            <div class="col-sm-8" id="service_content">
                 @foreach($organization_services as $organization_service)
                     @if($organization_service->name!=null)
                     <div class="box box-service">
@@ -33,8 +33,8 @@
             </div>
             <div class="col-sm-4">
                 <div class="box" style="border-top: 2px solid #d2d6de;">
-                <div id="mymap_service"></div>
-            </div>
+                    <div id="mymap_service"></div>
+                </div>
             </div>
         </div>
     </div>

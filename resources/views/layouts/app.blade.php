@@ -46,14 +46,12 @@
     <div id="loader" style="display: none;"></div>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
-        @include('partials.header')
-        <div class="demo-ribbon"></div>
         @include('partials.sidebar')
 
         <main class="demo-main mdl-layout__content">
             @yield('content')
         </main>
-        <div class="mdl-layout__obfuscator"></div>
+        <!-- <div class="mdl-layout__obfuscator"></div> -->
 
     </div>
 

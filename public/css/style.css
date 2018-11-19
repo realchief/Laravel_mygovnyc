@@ -35,10 +35,11 @@ footer.mdl-mini-footer{
 }
 
 .demo-main {
-  margin-top: -92.8px;
+  margin-top: 8px;
   flex-shrink: 0;
   padding-left: 10px;
   padding-right: 10px;
+  margin-left: 240px;
 }
 
 /*.demo-header .mdl-layout__header-row {
@@ -48,6 +49,7 @@ footer.mdl-mini-footer{
 .demo-container {
   margin: 0 auto;
   padding-bottom: 0;
+  padding: 0;
 }
 
 .demo-content {
