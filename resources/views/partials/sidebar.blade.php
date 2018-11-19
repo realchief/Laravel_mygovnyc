@@ -1,4 +1,4 @@
-<div class="mdl-layout__drawer is-visible">
+<div class="mdl-layout__drawer">
 	
 	<nav class="mdl-navigation">
 		<a class="" href="/"><img src="../../../images/logo.png" class="img-responsive"></a>

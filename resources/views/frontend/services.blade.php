@@ -33,8 +33,8 @@
             </div>
             <div class="col-sm-4">
                 <div class="box" style="border-top: 2px solid #d2d6de;">
-                    <div id="mymap_service"></div>
-                </div>
+                <div id="mymap_service"></div>
+            </div>
             </div>
         </div>
     </div>
