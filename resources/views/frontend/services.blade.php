@@ -14,9 +14,9 @@
             </div>
         </div>
 
-        <div class="col-sm-9" style="padding: 0;padding-top: 20px;">
+        <div class="col-sm-9"  id="service_content" style="padding: 0;padding-top: 20px;">
             
-            <div class="col-sm-8" id="service_content">
+            <div class="col-sm-8">
                 @foreach($organization_services as $organization_service)
                     @if($organization_service->name!=null)
                     <div class="box box-service">
