@@ -106,6 +106,9 @@
           for(i = 0; i < cboxes.length; i ++)
             project_type[i] = cboxes[i].value;
 
+          console.log(organization_value);
+          console.log(project_type);
+
           $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

@@ -12,8 +12,8 @@
           @include('layouts.project_sidebar')
       </div>
   </div>
-  <div class="col-sm-9"  id="project_content" style="padding-top: 10px;">
-    <div class="col-sm-8">
+  <div class="col-sm-9" style="padding-top: 10px;">
+    <div class="col-sm-8" id="project_content" >
       <div class="box" style="margin-bottom: 0;">
         <!-- /.box-header -->
 

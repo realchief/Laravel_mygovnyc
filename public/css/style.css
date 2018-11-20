@@ -583,3 +583,9 @@ dt{
   font-size: 20px;
   font-weight: 400;
 }
+#sidebar{
+  display: block;
+  float: left;
+  width: 200px;
+  position: relative;
+}

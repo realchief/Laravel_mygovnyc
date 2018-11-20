@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="{{asset('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,600,700,300italic,400italic,600italic">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style2.css')}}">
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,600,700,300italic,400italic,600italic">
@@ -44,17 +45,20 @@
 
 <body>
     <div id="loader" style="display: none;"></div>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div class="wrapper">
+        <nav id="sidebar">
+            @include('partials.sidebar')
+        </nav>
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" id="content">
 
-        @include('partials.header')
-        <div class="demo-ribbon"></div>
-        @include('partials.sidebar')
+            @include('partials.header')
+            <div class="demo-ribbon"></div>
 
-        <main class="demo-main mdl-layout__content">
-            @yield('content')
-        </main>
-        <div class="mdl-layout__obfuscator"></div>
+            <main class="demo-main mdl-layout__content">
+                @yield('content')
+            </main>
 
+        </div>
     </div>
 
     <!-- jQuery UI 1.11.4 -->
@@ -79,6 +83,13 @@
     <script src="{{asset('dist/js/demo.js')}}"></script>
     <!-- Bootstrap slider -->
     <script src="{{asset('plugins/bootstrap-slider/bootstrap-slider.js')}}"></script>
+
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
     <script>
       $(function () {
         /* BOOTSTRAP SLIDER */
@@ -96,5 +107,12 @@
             });
         }
         setInterval(refreshToken, 3600000); // 1 hour 
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
     </script>
 </html>

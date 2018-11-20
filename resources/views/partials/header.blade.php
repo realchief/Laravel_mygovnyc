@@ -1,8 +1,10 @@
 <header class="mdl-layout__header">
 	<div class="mdl-layout__header-row">
-		<div class="mdl-layout__drawer-button"><i class="material-icons">menu</i></div>
+		<button type="button" id="sidebarCollapse" class="btn mdl-layout__drawer-button" style="padding: 0">
+            <i class="material-icons">menu</i>
+        </button>
 		<span class="mdl-layout-title">@yield('title')</span>
-		<div class="mdl-layout-spacer"></div>
+<!-- 		<div class="mdl-layout-spacer"></div> -->
 	</div>
 </header>
 

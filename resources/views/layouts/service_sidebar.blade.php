@@ -25,7 +25,7 @@
               @if($taxonomy->name!='')
               <div class="checkbox">             
                 <label>
-                  <input type="checkbox" class="taxonomy-checkbox" value="{{$taxonomy->taxonomy_id}}" @if($taxonomy->name=='After School Care') checked @endif>  <span class="subitem-list text-uppercase">{{$taxonomy->name}}</span>
+                  <input type="checkbox" class="taxonomy-checkbox" value="{{$taxonomy->taxonomy_id}}">  <span class="subitem-list text-uppercase">{{$taxonomy->name}}</span>
                 </label>
               </div>
               @endif
