@@ -16,10 +16,11 @@
 
                 <div>
                     <div class="page-content">
-                        <div class="row" style="padding:0 !important;">
-                            <div class="col-lg-8">
-                                <div class="panel" style="padding-top: 20px;">
-                                    <div class="panel-body">
+                        <div class="panel" style="padding-top: 20px;">
+                            <div class="panel-body">
+                                <div class="row" style="padding:0 !important;">
+                                    <div class="col-lg-8">
+                                        
                                         <p style="font-size: 25px;color: #357ca5;">{{$project->project_description}}</p>
 
                                         <p><code> Project ID</code> {{$project->project_projectid}}</p>
@@ -35,41 +36,44 @@
 
                                         <p><code> Commitments</code> {{sizeof(explode(",", $project->project_commitments))}}</p>
 
-                                        <table id="example" class="table table-striped table-hover table-bordered" cellspacing="0" width="100%">
-                                            <thead>
-                                                <tr class="info">
-                                                    <th>Description</th>
-                                                    <th>Commitment Date</th>
-                                                    <th>Non-City Cost</th>
-                                                    <th>City Cost</th>
-                                                    <th>Budgetline</th>
-                                                    <th>FMS Number</th>
-                                                    <th>Commitment Code</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="tblData">
-                                                @foreach ($commitments as $commitment)
-                                                <tr>
-                                                    <td>{{$commitment->description}}</td>
-                                                    <td>{{$commitment->plancommdate}}</td>
-                                                    <td>${{number_format($commitment->noncitycost)}}</td>
-                                                    <td>${{number_format($commitment->citycost)}}</td>
-                                                    <td>{{$commitment->budgetline}}</td>
-                                                    <td>{{$commitment->fmsnumber}}</td>
-                                                    <td>{{$commitment->commitmentcode}}</td>
-                                                </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
 
                                     </div>
+                                    <div class="col-lg-4">
+                                        <div class="portlet box">
+
+                                            <div id="mymap_project_type"></div>
+
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="portlet box">
-
-                                    <div id="mymap_project_type"></div>
-
+                                <div class="contain-fluid">
+                                    <table id="example" class="table table-striped table-hover table-bordered" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr class="info">
+                                                <th>Description</th>
+                                                <th>Commitment Date</th>
+                                                <th>Non-City Cost</th>
+                                                <th>City Cost</th>
+                                                <th>Budgetline</th>
+                                                <th>FMS Number</th>
+                                                <th>Commitment Code</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tblData">
+                                            @foreach ($commitments as $commitment)
+                                            <tr>
+                                                <td>{{$commitment->description}}</td>
+                                                <td>{{$commitment->plancommdate}}</td>
+                                                <td>${{number_format($commitment->noncitycost)}}</td>
+                                                <td>${{number_format($commitment->citycost)}}</td>
+                                                <td>{{$commitment->budgetline}}</td>
+                                                <td>{{$commitment->fmsnumber}}</td>
+                                                <td>{{$commitment->commitmentcode}}</td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                    
                                 </div>
                             </div>
                         </div>
