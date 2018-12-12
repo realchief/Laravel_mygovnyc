@@ -45,7 +45,7 @@
                             <div class="box text-center" style="min-height: 390px;">
                                 <div class="box-header"><h3 class="box-title">Charter</h3></div>
                                 <div class="box-body">
-                                    <iframe frameborder=0 src="http://{{$organization->charter}}" class="charter-iframe"></iframe>
+                                    <iframe frameborder=0 src="{{$organization->charter}}" class="charter-iframe"></iframe>
                                     <a class="btn btn-charter" href="http://{{$organization->charter}}" target="_blank">Go to the Charter</a>
                                 </div>
                             </div>
@@ -55,7 +55,7 @@
                                 
                                 <div class="box-header"><h3 class="box-title">Administrative Code</h3></div>
                                 <div class="box-body">
-                                    <iframe frameborder=0 src="http://{{$organization->code}}" class="charter-iframe"></iframe>
+                                    <iframe frameborder=0 src="{{$organization->code}}" class="charter-iframe"></iframe>
                                     <a class="btn btn-charter" target="_blank" href="http://{{$organization->code}}">Go to the Code</a>
                                 </div>
                             </div>
@@ -64,7 +64,7 @@
                             <div class="box text-center" style="min-height: 390px;">
                                 <div class="box-header"><h3 class="box-title">Rules</h3></div>
                                 <div class="box-body">
-                                    <iframe frameborder=0 src="http://{{$organization->rules}}" class="charter-iframe"></iframe>
+                                    <iframe frameborder=0 src="{{$organization->rules}}" class="charter-iframe"></iframe>
                                     <a class="btn btn-charter" target="_blank" href="http://{{$organization->rules}}">Go to the Rules</a>
                                 </div>
                             </div>

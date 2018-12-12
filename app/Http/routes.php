@@ -248,6 +248,26 @@ Route::group(['middleware' => 'administrator'], function () {
 		'uses' 			=> 'UserController@datasync'
 	]);
 
+	Route::get('/sync_address', ['uses' => 'AdminAddressController@airtable']);
+	Route::get('/sync_contacts', ['uses' => 'AdminContactController@airtable']);
+	Route::get('/sync_organizations', ['uses' => 'AdminOrganizationController@airtable']); 
+	Route::get('/sync_phones', ['uses' => 'AdminPhoneController@airtable']);
+	Route::get('/sync_tags', ['uses' => 'AdminTagController@airtable']);  
+	Route::get('/sync_projects', ['uses' => 'AdminProjectController@airtable']);
+	Route::get('/sync_commitments', ['uses' => 'AdminCommitmentController@airtable']);
+	Route::get('/sync_expenses', ['uses' => 'AdminExpenseController@airtable']); 
+	Route::get('/sync_organization', ['uses' => 'AdminAgencyController@airtable']);
+	Route::get('/sync_services', ['uses' => 'AdminServiceController@airtable']);
+	Route::get('/sync_locations', ['uses' => 'AdminLocationController@airtable']); 
+	Route::get('/sync_services_organizations', ['uses' => 'AdminServiceOrganizationController@airtable']); 
+	Route::get('/sync_contact', ['uses' => 'AdminServiceContactController@airtable']);
+	Route::get('/sync_services_phones', ['uses' => 'AdminServicePhoneController@airtable']); 
+	Route::get('/sync_services_address', ['uses' => 'AdminServiceAddressController@airtable']);
+	Route::get('/sync_schedule', ['uses' => 'AdminScheduleController@airtable']);
+	Route::get('/sync_service_area', ['uses' => 'AdminServiceAreaController@airtable']); 
+	Route::get('/sync_taxonomy', ['uses' => 'AdminTaxonomyController@airtable']); 
+	Route::get('/sync_details', ['uses' => 'AdminDetailController@airtable']);  
+
 
 
 	// resource routes for posts

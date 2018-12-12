@@ -128,12 +128,12 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="box">
-                                <div class="box-header"><h3 class="box-title">Twitter <a  href="http://{{$organization->Twitter}}" target="_blank">(profile)</a></h3></div>
+                                <div class="box-header"><h3 class="box-title">Twitter <a  href="{{$organization->Twitter}}" target="_blank">(profile)</a></h3></div>
                                 <div class="box-body">
 
                                 @if($organization->Twitter)
                                 <div class="embed-responsive embed-responsive-16by9" style="overflow: overlay;padding-right:24px;">
-                                    <a class="twitter-timeline" href="https://{{$organization->Twitter}}?ref_src=twsrc%5Etfw">Tweets by NYCSanitation</a> 
+                                    <a class="twitter-timeline" href="{{$organization->Twitter}}?ref_src=twsrc%5Etfw">Tweets by NYCSanitation</a> 
                                      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                                 </div>
                                 @elseif($organization->RSS || $organization->Facebook)
@@ -149,7 +149,7 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="box">
-                                <div class="box-header"><h3 class="box-title">Facebook <a  href="http://{{$organization->Facebook}}" target="_blank">(page)</a></h3></div>
+                                <div class="box-header"><h3 class="box-title">Facebook <a href="{{$organization->Facebook}}" target="_blank">(page)</a></h3></div>
                                 <div class="box-body">
                                     @if($organization->Facebook)
                                     <aside class="widget--facebook--container">

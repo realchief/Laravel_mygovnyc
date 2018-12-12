@@ -43,7 +43,7 @@
                         <div class="col-sm-12">
                             <div class="box text-center" style="min-height: 390px;">
                                 <div class="box-body">
-                                    <iframe frameborder=0 src="https://{{$organization->legislation}}" class="charter-iframe"></iframe>
+                                    <iframe frameborder=0 src="{{$organization->legislation}}" class="charter-iframe"></iframe>
                                 </div>
                             </div>
                         </div>

@@ -4,8 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Budgets extends Model
+class ServicePhone extends Model
 {
-    protected $table = 'budgets_table';
+    protected $table = 'services_phones';
+
     public $timestamps = false;
+
 }

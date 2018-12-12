@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Budgets extends Model
+class Airtable_people extends Model
 {
-    protected $table = 'budgets_table';
+    protected $table = 'contact_table';
     public $timestamps = false;
+
 }

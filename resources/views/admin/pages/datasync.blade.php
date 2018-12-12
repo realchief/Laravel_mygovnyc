@@ -16,6 +16,10 @@
     .probar {
         width: 80px;
     }
+    .box-title{
+        display: block !important;
+        margin-top: 5px !important;
+    }
 </style>
 <div class="content-wrapper">
     <section class="content-header">
@@ -32,11 +36,21 @@
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3>Source Name: mygovnyc-money</h3>
+                        <div class="col-md-6">
+                            <h4 class="box-title">Dataset Name: mygovnyc-money</h4>
+                            <h4 class="box-title">Format: Airtable API</h4>
+                            <h4 class="box-title">API Path: https://api.airtable.com/v0/appd1eQuF0gFcOMsV</h4>
+                            <h4 class="box-title">API Key: keyIvQZcMYmjNbtUO</h4>
+                            <h4 class="box-title">Notes:</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="box-title">All Organizations:</h4>
+                            <h4 class="box-title">Coded Organizations:</h4>
+                            <h4 class="box-title">Coded Column Name:</h4>
+                        </div>
                     </div>
 
                     <div class="box-body table-responsive">
-                        <h4 class="box-title">Source URL: https://airtable.com/tblnB1gcDJx9MxUNM</h4>
                         <table id="user_table" class="table table-striped table-hover table-condensed">
                             <thead>
                                 <tr class="success">
@@ -74,11 +88,21 @@
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3>Source Name: mygov-people</h3>
+                        <div class="col-md-6">
+                            <h4 class="box-title">Dataset Name: mygovnyc-money</h4>
+                            <h4 class="box-title">Format: Airtable API</h4>
+                            <h4 class="box-title">API Path: https://api.airtable.com/v0/appd1eQuF0gFcOMsV</h4>
+                            <h4 class="box-title">API Key: keyIvQZcMYmjNbtUO</h4>
+                            <h4 class="box-title">Notes:</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="box-title">All Organizations:</h4>
+                            <h4 class="box-title">Coded Organizations:</h4>
+                            <h4 class="box-title">Coded Column Name:</h4>
+                        </div>
                     </div>
 
                     <div class="box-body table-responsive">
-                        <h4 class="box-title">Source URL: https://airtable.com/tbld7PVSKy3N7ePXB</h4>
                         <table id="user_table" class="table table-striped table-hover table-condensed">
                             <thead>
                                 <tr class="success">
@@ -116,11 +140,21 @@
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3>Source Name: mygov-services</h3>
+                        <div class="col-md-6">
+                            <h4 class="box-title">Dataset Name: mygovnyc-money</h4>
+                            <h4 class="box-title">Format: Airtable API</h4>
+                            <h4 class="box-title">API Path: https://api.airtable.com/v0/appd1eQuF0gFcOMsV</h4>
+                            <h4 class="box-title">API Key: keyIvQZcMYmjNbtUO</h4>
+                            <h4 class="box-title">Notes:</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="box-title">All Organizations:</h4>
+                            <h4 class="box-title">Coded Organizations:</h4>
+                            <h4 class="box-title">Coded Column Name:</h4>
+                        </div>
                     </div>
 
                     <div class="box-body table-responsive">
-                        <h4 class="box-title">Source URL: https://airtable.com/tblHfNfXpbGVgNX4j</h4>
                         <table id="user_table" class="table table-striped table-hover table-condensed">
                             <thead>
                                 <tr class="success">
@@ -177,7 +211,7 @@
             name = name.toLowerCase();
             $.ajax({
                 type: "GET",
-                url: name+'.php',
+                url: '/sync_'+name,
                 success: function(result) {
                     $img.remove();
                     $here.show();
