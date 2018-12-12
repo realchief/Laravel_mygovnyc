@@ -89,7 +89,7 @@
                 <div class="box">
                     <div class="box-header">
                         <div class="col-md-6">
-                            <h4 class="box-title">Dataset Name: mygovnyc-money</h4>
+                            <h4 class="box-title">Dataset Name: mygovnyc-people</h4>
                             <h4 class="box-title">Format: Airtable API</h4>
                             <h4 class="box-title">API Path: https://api.airtable.com/v0/appd1eQuF0gFcOMsV</h4>
                             <h4 class="box-title">API Key: keyIvQZcMYmjNbtUO</h4>
@@ -141,9 +141,9 @@
                 <div class="box">
                     <div class="box-header">
                         <div class="col-md-6">
-                            <h4 class="box-title">Dataset Name: mygovnyc-money</h4>
+                            <h4 class="box-title">Dataset Name: mygovnyc-services</h4>
                             <h4 class="box-title">Format: Airtable API</h4>
-                            <h4 class="box-title">API Path: https://api.airtable.com/v0/appd1eQuF0gFcOMsV</h4>
+                            <h4 class="box-title">API Path: https://api.airtable.com/v0/app2sk6MlzyikwbzL</h4>
                             <h4 class="box-title">API Key: keyIvQZcMYmjNbtUO</h4>
                             <h4 class="box-title">Notes:</h4>
                         </div>
