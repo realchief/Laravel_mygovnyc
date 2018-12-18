@@ -20,7 +20,7 @@ class AdminGreenbookController extends Controller
 
         Greenbook::truncate();
 
-        $url="https://data.cityofnewyork.us/resource/25gq-py4s.json";
+        $url="https://data.cityofnewyork.us/resource/25gq-py4s.json?%24limit=5000&%24%24app_token=D07X33c2KMkVnK7eAZA3Aueye";
         $json = file_get_contents($url);
         $data = json_decode($json);
 

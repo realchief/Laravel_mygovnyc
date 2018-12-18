@@ -28,7 +28,7 @@
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Source URL: https://data.cityofnewyork.us/resource/25gq-py4s.json</h3>
+                        <h3 class="box-title">Source URL: https://data.cityofnewyork.us/resource/25gq-py4s.json?%24limit=5000</h3>
                     </div>
 
                     <div class="box-body table-responsive">

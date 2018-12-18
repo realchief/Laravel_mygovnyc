@@ -61,7 +61,11 @@ class UserController extends Controller
         $services = Services::all(); 
 
         $greenbooks = Greenbook::count();
-        $greenbook_date = Greenbook::find(1)->created_at;
+        if($greenbooks==0)
+            $greenbook_date ='';
+        else
+            $greenbook_date = Greenbook::find(1)->created_at;
+
 
         return view('admin.pages.datasync', compact('budgets', 'contacts', 'services', 'greenbooks', 'greenbook_date'))->withUser($user)->withAccess($access);
     }
