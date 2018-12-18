@@ -21,7 +21,7 @@
        
 
         {{-- SIDEBAR NAVIGATION: style sidebar.less --}}
-        <ul class="sidebar-menu">
+        <ul class="sidebar-menu" style="height: 2100px;">
 
             <li class="header">
                 {{ Lang::get('sidebar-nav.nav_title') }}
