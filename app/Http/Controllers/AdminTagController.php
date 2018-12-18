@@ -26,7 +26,7 @@ class AdminTagController extends Controller
             'base'      => 'appd1eQuF0gFcOMsV',
         ));
 
-        $request = $airtable->getContent( 'address' );
+        $request = $airtable->getContent( 'tags' );
 
         do {
 

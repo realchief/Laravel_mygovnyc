@@ -187,6 +187,55 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="box-header">
+                        <div class="col-md-6">
+                            <h4 class="box-title">Dataset Name: NYC OpenData-Greenbook</h4>
+                            <h4 class="box-title">Format: Socrata</h4>
+                            <h4 class="box-title">Api Path: https://data.cityofnewyork.us/resource/25gq-py4s.json</h4>
+                            <h4 class="box-title">API Key: </h4>
+                            <h4 class="box-title">Notes:</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="box-title">All Organizations:</h4>
+                            <h4 class="box-title">Coded Organizations:</h4>
+                            <h4 class="box-title">Coded Column Name:</h4>
+                        </div>
+                    </div>
+
+                    <div class="box-body table-responsive">
+                        <table id="user_table" class="table table-striped table-hover table-condensed">
+                            <thead>
+                                <tr class="success">
+                                    <th class="text-center">No</th>
+                                    <th class="text-center">Table Name</th>
+                                    <th class="text-center">Total Records</th>
+                                    <th class="text-center">Last Synced</th>
+                                    <th class="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">1</td>
+                                    <td class="text-center">Greenbook</td>
+                                    <td class="text-center">{{$greenbooks}}</td>
+                                    <td class="text-center">{{$greenbook_date}}</td>
+                                    <td class="text-center">
+                                        <button class="badge bg-yellow sync_now">Sync Now</button>
+                                        <button class="badge bg-blue"><a href="/tb_greenbook" style="color: white;">View Table</a></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+        </div>
     </section>
 </div>
 

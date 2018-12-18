@@ -78,6 +78,7 @@
                 <li><a href="/tb_programs"><i class="fa fa-circle-o"></i> Programs </a></li>
                 <li><a href="/tb_taxonomy"><i class="fa fa-circle-o"></i> Taxonomy </a></li>
                 <li><a href="/tb_details"><i class="fa fa-circle-o"></i> Details </a></li>
+                <li><a href="/tb_greenbook"><i class="fa fa-circle-o"></i> Greenbook </a></li>
               </ul>
             </li>
             

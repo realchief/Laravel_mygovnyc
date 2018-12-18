@@ -266,7 +266,9 @@ Route::group(['middleware' => 'administrator'], function () {
 	Route::get('/sync_schedule', ['uses' => 'AdminScheduleController@airtable']);
 	Route::get('/sync_service_area', ['uses' => 'AdminServiceAreaController@airtable']); 
 	Route::get('/sync_taxonomy', ['uses' => 'AdminTaxonomyController@airtable']); 
-	Route::get('/sync_details', ['uses' => 'AdminDetailController@airtable']);  
+	Route::get('/sync_details', ['uses' => 'AdminDetailController@airtable']);
+
+	Route::get('/sync_greenbook', ['uses' => 'AdminGreenbookController@greenbook']);   
 
 
 
@@ -296,6 +298,8 @@ Route::group(['middleware' => 'administrator'], function () {
 	Route::resource('tb_programs', 'AdminProgramController');
 	Route::resource('tb_taxonomy', 'AdminTaxonomyController');
 	Route::resource('tb_details', 'AdminDetailController');
+
+	Route::resource('tb_greenbook', 'AdminGreenbookController');
 
 	Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
