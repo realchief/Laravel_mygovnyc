@@ -69,7 +69,12 @@
 
                                 @foreach($greenbooks as $key => $greenbook)
                                 <tr id="greenbook{{$greenbook->id}}" class="{{$greenbook->flag}}">
-                                    <td class="text-center">{{$key+15*($_GET['page']-1)+1}}</td>
+                                    <td class="text-center">
+                                    @if(isset($_GET['page']))
+                                        {{$key+15*($_GET['page']-1)+1}}</td>
+                                    @else
+                                        {{$key+1}}</td>
+                                    @endif
                                     <td class="text-center">{{$greenbook->agency_name}}</td>
                                     <td class="text-center">{{$greenbook->organization_code}}</td>
                                     <td class="text-center">{{$greenbook->alternate_name}}</td>
