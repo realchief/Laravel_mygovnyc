@@ -20,7 +20,7 @@ class AdminGreenbookController extends Controller
 
         Greenbook::truncate();
 
-        $url="https://data.cityofnewyork.us/resource/25gq-py4s.json?%24limit=5000&%24%24app_token=D07X33c2KMkVnK7eAZA3Aueye";
+        $url="https://data.cityofnewyork.us/resource/25gq-py4s.json?%24limit=5000";
         $json = file_get_contents($url);
         $data = json_decode($json);
 
@@ -58,7 +58,7 @@ class AdminGreenbookController extends Controller
 
     public function index()
     {
-        $greenbooks = Greenbook::paginate(15);
+        $greenbooks = Greenbook::groupBy('agency_name')->paginate(15);
         return view('admin.tables.greenbook')->with('greenbooks', $greenbooks);
     }
 
@@ -118,8 +118,9 @@ class AdminGreenbookController extends Controller
     {
         $greenbook = Greenbook::find($id);
         $greenbook->address = $request->address;
-        $greenbook->agency_acronym = $request->agency_acronym;
         $greenbook->agency_name = $request->agency_name;
+        $greenbook->agency_acronym = $request->agency_acronym;
+        $greenbook->organization_code = $request->organization_code;       
         $greenbook->agency_primary_phone = $request->agency_primary_phone;
         $greenbook->agency_website = $request->agency_website;
         $greenbook->city = $request->city;
@@ -142,6 +143,8 @@ class AdminGreenbookController extends Controller
         $greenbook->zip_code = $request->zip_code;
         $greenbook->flag = 'modified';
         $greenbook->save();
+
+        Greenbook::where('agency_name', $greenbook->agency_name)->update(['organization_code'=>$greenbook->organization_code]);
 
         return response()->json($greenbook);
     }

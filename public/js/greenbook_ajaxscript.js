@@ -25,6 +25,7 @@ $(document).ready(function(){
                 console.log(data);
                 $('#greenbook_id').val(data.id);
                 $('#agency_name').val(data.agency_name);
+                $('#organization_code').val(data.organization_code);
                 $('#agency_acronym').val(data.agency_acronym);
                 $('#agency_website').val(data.agency_website);
                 $('#first_name').val(data.first_name);
@@ -69,6 +70,7 @@ $(document).ready(function(){
         e.preventDefault(); 
         var formData = {
             agency_name: $('#agency_name').val(),
+            organization_code: $('#organization_code').val(),
             agency_acronym: $('#agency_acronym').val(),
             agency_website: $('#agency_website').val(),
             first_name: $('#first_name').val(),

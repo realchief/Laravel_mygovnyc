@@ -38,6 +38,7 @@
                                 <tr class="info">
                                     <th class="text-center">No</th>
                                     <th class="text-center">Agency Name</th>
+                                    <th class="text-center">Organization Code</th>
                                     <th class="text-center">Agency Acronym</th>
                                     <th class="text-center">Agency Website</th>
                                     <th class="text-center">First Name</th>
@@ -65,10 +66,12 @@
                                 </tr>
                             </thead>
                             <tbody>
+
                                 @foreach($greenbooks as $key => $greenbook)
                                 <tr id="greenbook{{$greenbook->id}}" class="{{$greenbook->flag}}">
-                                    <td class="text-center">{{$greenbook->id}}</td>
+                                    <td class="text-center">{{$key+15*($_GET['page']-1)+1}}</td>
                                     <td class="text-center">{{$greenbook->agency_name}}</td>
+                                    <td class="text-center">{{$greenbook->organization_code}}</td>
                                     <td class="text-center">{{$greenbook->alternate_name}}</td>
                                     <td class="text-center">{{$greenbook->agency_acronym}}</td>
                                     <td class="text-center">{{$greenbook->agency_website}}</td>
@@ -127,6 +130,13 @@
 
                               <div class="col-sm-7">
                                 <input type="text" class="form-control" id="agency_name" name="agency_name" value="">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="inputPassword3" class="col-sm-4 control-label">Organization Code</label>
+
+                              <div class="col-sm-7">
+                                <input type="text" class="form-control" id="organization_code" name="organization_code" value="">
                               </div>
                             </div>
                             <div class="form-group">
@@ -198,7 +208,9 @@
                               <div class="col-sm-7">
                                 <input type="text" class="form-control" id="grand_parent_division" name="grand_parent_division">
                               </div>
-                            </div>
+                            </div>                           
+                        </div>
+                        <div class="col-md-6">
                             <div class="form-group">
                               <label for="inputPassword3" class="col-sm-4 control-label pt-0">Great Grand Parent Division</label>
 
@@ -206,8 +218,6 @@
                                 <input type="text" class="form-control" id="great_grand_parentdivision" name="great_grand_parentdivision">
                               </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
                             <div class="form-group">
                               <label for="inputPassword3" class="col-sm-4 control-label">Address</label>
 

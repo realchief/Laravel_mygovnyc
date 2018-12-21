@@ -12,6 +12,7 @@ class Greenbook extends Model
     	'addrress',
     	'agency_acronym',
     	'agency_name',
+    	'organization_code',
     	'agency_primary_phone',
     	'agency_website',
     	'city',
