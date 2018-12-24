@@ -9,6 +9,10 @@
         background-color: red !important;
         color: white;
     }
+    tr.coded > td{
+        background-color: green !important;
+        color: white;
+    }
     .pt-0{
         padding-top: 0 !important;
     }
@@ -39,6 +43,7 @@
                                     <th class="text-center">No</th>
                                     <th class="text-center">Agency Name</th>
                                     <th class="text-center">Organization Code</th>
+                                    <th class="text-center">Actions</th>
                                     <th class="text-center">Agency Acronym</th>
                                     <th class="text-center">Agency Website</th>
                                     <th class="text-center">First Name</th>
@@ -62,7 +67,7 @@
                                     <th class="text-center">Agency Primary Phone</th>
                                     <th class="text-center">Division Primary Phone</th>
                                     <th class="text-center">Section</th>
-                                    <th class="text-center">Actions</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -77,6 +82,9 @@
                                     @endif
                                     <td class="text-center">{{$greenbook->agency_name}}</td>
                                     <td class="text-center">{{$greenbook->organization_code}}</td>
+                                    <td class="text-center">
+                                        <button class="btn btn-block btn-primary btn-sm open_modal"  value="{{$greenbook->id}}"><i class="fa fa-fw fa-edit"></i>Edit</button>
+                                    </td>
                                     <td class="text-center">{{$greenbook->alternate_name}}</td>
                                     <td class="text-center">{{$greenbook->agency_acronym}}</td>
                                     <td class="text-center">{{$greenbook->agency_website}}</td>
@@ -100,9 +108,7 @@
                                     <td class="text-center">{{$greenbook->agency_primary_phone}}</td>
                                     <td class="text-center">{{$greenbook->division_primary_phone}}</td>
                                     <td class="text-center">{{$greenbook->section}}</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-block btn-primary btn-sm open_modal"  value="{{$greenbook->id}}"><i class="fa fa-fw fa-edit"></i>Edit</button>
-                                    </td>
+                                    
                                 </tr>
                                 @endforeach                                                  
                             </tbody>

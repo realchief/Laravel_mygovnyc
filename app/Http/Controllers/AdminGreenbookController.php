@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Greenbook;
+use App\Models\Organization;
 use App\Http\Requests;
 use File;
 
@@ -141,7 +142,13 @@ class AdminGreenbookController extends Controller
         $greenbook->section = $request->section;
         $greenbook->state = $request->state;
         $greenbook->zip_code = $request->zip_code;
-        $greenbook->flag = 'modified';
+
+        $coded = Organization::where('organizations_id', '=', $greenbook->organization_code)->first();
+        if($coded)
+            $greenbook->flag = 'coded';
+        else
+            $greenbook->flag = 'modified';
+        
         $greenbook->save();
 
         Greenbook::where('agency_name', $greenbook->agency_name)->update(['organization_code'=>$greenbook->organization_code]);

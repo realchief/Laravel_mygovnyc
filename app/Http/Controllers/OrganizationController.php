@@ -18,6 +18,7 @@ use App\Models\Taxonomy;
 use App\Models\Service;
 use App\Models\Location;
 use App\Models\Project;
+use App\Models\Greenbook;
 use App\Models\Organization;
 use App\Services\Numberformat;
 
@@ -132,7 +133,9 @@ class OrganizationController extends Controller
     {
         $organization = Organization::where('organizations_id','=',$id)->leftjoin('tags', 'organizations.tags', 'like', DB::raw("concat('%', tags.tag_id, '%')"))->select('organizations.*', 'organizations.description as organization_description', DB::raw('group_concat(DISTINCT(tags.tag_name)) as tag_names'))->groupBy('organizations.organization_id')->first();
 
-        $organization_peoples = Organization::where('organizations_id','=', $id)->leftjoin('contacts', 'organizations.contacts', 'like', DB::raw("concat('%', contacts.contact_id, '%')"))->groupBy('contacts.contact_id')->get();
+        // $organization_peoples = Organization::where('organizations_id','=', $id)->leftjoin('contacts', 'organizations.contacts', 'like', DB::raw("concat('%', contacts.contact_id, '%')"))->groupBy('contacts.contact_id')->get();
+
+        $organization_peoples = Greenbook::where('organization_code', '=', $id)->get();
 
         return view('frontend.organization_peoples', compact('organization', 'organization_peoples'))->render();
     }

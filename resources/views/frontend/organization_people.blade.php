@@ -49,7 +49,7 @@
                                                     <div class="panel-body">
                                                         <div class="note note-info"><h4 class="box-heading" style="font-size: 25px;">{{$people->name}} @if($people->name_suffix!='') ({{$people->name_suffix}}) @endif</h4>
 
-                                                        <p><code> Organization:</code>{{$people->organization_name}}</p>
+                                                        <p><code> Organization:</code> {{$people->agency_name}}</p>
                                                         <p><code> Title:</code> {{$people->office_title}}</p>
                                                         <p><code> Division:</code> {{$people->division_name}}
                                                         @if($people->parent_division!=''), {{$people->parent_division}}@endif @if($people->grand_parent_division!=''), {{$people->grand_parent_division}}@endif
@@ -67,7 +67,7 @@
                                                         <div id="mymap_people"></div>
                                                     </div>
                                                     <div class="portlet-body">
-                                                        <p><code>Address:</code>{{$people->full_address}}</p>
+                                                        <p><code>Address:</code> {{$people->address}}, {{$people->city}}, {{$people->state}}, {{$people->zip_code}}</p>
 
                                                     </div>
                                                 </div>
