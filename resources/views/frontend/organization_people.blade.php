@@ -72,7 +72,6 @@
                                                         <div id="mymap_people"></div>
                                                     </div>
                                                     <div class="portlet-body">
-                                                        <p><code>Address:</code> {{$people->address}}, {{$people->city}}, {{$people->state}}, {{$people->zip_code}}</p>
 
                                                     </div>
                                                 </div>
