@@ -49,6 +49,7 @@
                                                     <div class="panel-body">
                                                         <div class="note note-info"><h4 class="box-heading" style="font-size: 25px;">{{$people->name}} @if($people->name_suffix!='') ({{$people->name_suffix}}) @endif</h4>
 
+                                                        <p><code> Name:</code> {{$people->first_name}} {{$people->last_name}}</p>
                                                         <p><code> Organization:</code> {{$people->agency_name}}</p>
                                                         <p><code> Title:</code> {{$people->office_title}}</p>
                                                         <p><code> Division:</code> {{$people->division_name}}
