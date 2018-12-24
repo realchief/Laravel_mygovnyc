@@ -49,14 +49,18 @@
                                                     <div class="panel-body">
                                                         <div class="note note-info">
 
-                                                        <p><code> Name:</code> {{$people->first_name}} {{$people->last_name}}</p>
+                                                        <p><code> Name:</code> {{$people->first_name}} {{$people->m_i}} {{$people->last_name}}</p>
                                                         <p><code> Organization:</code> {{$people->agency_name}}</p>
                                                         <p><code> Title:</code> {{$people->office_title}}</p>
                                                         <p><code> Division:</code> {{$people->division_name}}
                                                         @if($people->parent_division!=''), {{$people->parent_division}}@endif @if($people->grand_parent_division!=''), {{$people->grand_parent_division}}@endif
                                                         @if($people->great_grand_parent_division!=''), {{$people->great_grand_parent_division}}@endif</p>
-                                                        <p><code> Email:</code> {{$people->email}}</p>
-                                                        <p><code> Phone:</code> {{$people->phone_numbers}}</p>
+                                                        <p><code>Address:</code> {{$people->address}}, {{$people->city}}, {{$people->state}}, {{$people->zip_code}}</p>
+                                                        <p><code> Phone:</code> {{$people->phone_1}}  {{$people->phone_2}}</p>
+                                                        <p><code> Fax: </code> {{$people->fax_1}}  {{$people->fax_2}}</p>
+                                                        <p><code> Agency Primary Phone:</code> {{$people->agency_primary_phone}}</p>
+                                                        <p><code> Division Primary Phone:</code> {{$people->division_primary_phone}}</p>
+                                                        <p><code> Section:</code> {{$people->section}}</p>
                                                         </div>
                                                     </div>
                                                 </div>
